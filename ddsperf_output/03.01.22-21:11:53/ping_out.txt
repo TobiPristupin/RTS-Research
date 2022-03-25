@@ -1,0 +1,132 @@
+1646190713.958096 [0]    ddsperf: config: Domain/General/NetworkInterfaceAddress/#text: auto {1}
+1646190713.958359 [0]    ddsperf: config: Domain/General/MulticastRecvNetworkInterfaceAddresses/#text: preferred {}
+1646190713.958428 [0]    ddsperf: config: Domain/General/ExternalNetworkAddress/#text: auto {}
+1646190713.958488 [0]    ddsperf: config: Domain/General/ExternalNetworkMask/#text: 0.0.0.0 {}
+1646190713.958552 [0]    ddsperf: config: Domain/General/AllowMulticast/#text: default {1}
+1646190713.958607 [0]    ddsperf: config: Domain/General/PreferMulticast/#text: false {}
+1646190713.958664 [0]    ddsperf: config: Domain/General/MulticastTimeToLive/#text: 32 {}
+1646190713.958718 [0]    ddsperf: config: Domain/General/DontRoute/#text: false {}
+1646190713.958774 [0]    ddsperf: config: Domain/General/Transport/#text: udp {}
+1646190713.958830 [0]    ddsperf: config: Domain/General/EnableMulticastLoopback/#text: true {}
+1646190713.958891 [0]    ddsperf: config: Domain/General/MaxMessageSize/#text: 65500 B {1}
+1646190713.958949 [0]    ddsperf: config: Domain/General/MaxRexmitMessageSize/#text: 1456 B {}
+1646190713.959008 [0]    ddsperf: config: Domain/General/FragmentSize/#text: 4000 B {1}
+1646190713.959062 [0]    ddsperf: config: Domain/General/RedundantNetworking/#text: false {}
+1646190713.959127 [0]    ddsperf: config: Domain/Sizing/ReceiveBufferSize/#text: 1 MiB {}
+1646190713.959187 [0]    ddsperf: config: Domain/Sizing/ReceiveBufferChunkSize/#text: 128 KiB {}
+1646190713.959243 [0]    ddsperf: config: Domain/Compatibility/StandardsConformance/#text: lax {}
+1646190713.959299 [0]    ddsperf: config: Domain/Compatibility/ExplicitlyPublishQosSetToDefault/#text: false {}
+1646190713.959356 [0]    ddsperf: config: Domain/Compatibility/ManySocketsMode/#text: single {}
+1646190713.959412 [0]    ddsperf: config: Domain/Compatibility/AssumeRtiHasPmdEndpoints/#text: false {}
+1646190713.959467 [0]    ddsperf: config: Domain/Discovery/Tag/#text:  {}
+1646190713.959523 [0]    ddsperf: config: Domain/Discovery/ExternalDomainId/#text: 0 {}
+1646190713.959584 [0]    ddsperf: config: Domain/Discovery/DSGracePeriod/#text: 30 s {}
+1646190713.959643 [0]    ddsperf: config: Domain/Discovery/ParticipantIndex/#text: none {}
+1646190713.959700 [0]    ddsperf: config: Domain/Discovery/MaxAutoParticipantIndex/#text: 9 {}
+1646190713.959756 [0]    ddsperf: config: Domain/Discovery/SPDPMulticastAddress/#text: 239.255.0.1 {}
+1646190713.959815 [0]    ddsperf: config: Domain/Discovery/SPDPInterval/#text: 30 s {}
+1646190713.959870 [0]    ddsperf: config: Domain/Discovery/DefaultMulticastAddress/#text: auto {}
+1646190713.959929 [0]    ddsperf: config: Domain/Discovery/Ports/Base/#text: 7400 {}
+1646190713.959985 [0]    ddsperf: config: Domain/Discovery/Ports/DomainGain/#text: 250 {}
+1646190713.960042 [0]    ddsperf: config: Domain/Discovery/Ports/ParticipantGain/#text: 2 {}
+1646190713.960098 [0]    ddsperf: config: Domain/Discovery/Ports/MulticastMetaOffset/#text: 0 {}
+1646190713.960156 [0]    ddsperf: config: Domain/Discovery/Ports/UnicastMetaOffset/#text: 10 {}
+1646190713.960212 [0]    ddsperf: config: Domain/Discovery/Ports/MulticastDataOffset/#text: 1 {}
+1646190713.960267 [0]    ddsperf: config: Domain/Discovery/Ports/UnicastDataOffset/#text: 11 {}
+1646190713.960367 [0]    ddsperf: config: Domain/Tracing/Category/#text: fatal,error,warning,info,config {1}
+1646190713.960432 [0]    ddsperf: config: Domain/Tracing/OutputFile/#text: stdout {1}
+1646190713.960489 [0]    ddsperf: config: Domain/Tracing/AppendToFile/#text: false {}
+1646190713.960545 [0]    ddsperf: config: Domain/Tracing/PacketCaptureFile/#text:  {}
+1646190713.960604 [0]    ddsperf: config: Domain/Internal/DeliveryQueueMaxSamples/#text: 256 {}
+1646190713.960662 [0]    ddsperf: config: Domain/Internal/PrimaryReorderMaxSamples/#text: 128 {}
+1646190713.960719 [0]    ddsperf: config: Domain/Internal/SecondaryReorderMaxSamples/#text: 128 {}
+1646190713.960775 [0]    ddsperf: config: Domain/Internal/DefragUnreliableMaxSamples/#text: 4 {}
+1646190713.960831 [0]    ddsperf: config: Domain/Internal/DefragReliableMaxSamples/#text: 16 {}
+1646190713.960959 [0]    ddsperf: config: Domain/Internal/BuiltinEndpointSet/#text: writers {}
+1646190713.961019 [0]    ddsperf: config: Domain/Internal/MeasureHbToAckLatency/#text: false {}
+1646190713.961073 [0]    ddsperf: config: Domain/Internal/UnicastResponseToSPDPMessages/#text: true {}
+1646190713.961130 [0]    ddsperf: config: Domain/Internal/SynchronousDeliveryPriorityThreshold/#text: 0 {}
+1646190713.961184 [0]    ddsperf: config: Domain/Internal/SynchronousDeliveryLatencyBound/#text: inf {}
+1646190713.961240 [0]    ddsperf: config: Domain/Internal/MaxParticipants/#text: 0 {}
+1646190713.961295 [0]    ddsperf: config: Domain/Internal/AccelerateRexmitBlockSize/#text: 0 {}
+1646190713.961351 [0]    ddsperf: config: Domain/Internal/RetransmitMerging/#text: never {}
+1646190713.961409 [0]    ddsperf: config: Domain/Internal/RetransmitMergingPeriod/#text: 5 ms {}
+1646190713.961467 [0]    ddsperf: config: Domain/Internal/HeartbeatInterval/#text: 100 ms {}
+1646190713.961525 [0]    ddsperf: config: Domain/Internal/HeartbeatInterval[@min]: 5 ms {}
+1646190713.961583 [0]    ddsperf: config: Domain/Internal/HeartbeatInterval[@minsched]: 20 ms {}
+1646190713.961643 [0]    ddsperf: config: Domain/Internal/HeartbeatInterval[@max]: 8 s {}
+1646190713.961700 [0]    ddsperf: config: Domain/Internal/MaxQueuedRexmitBytes/#text: 512 KiB {}
+1646190713.961756 [0]    ddsperf: config: Domain/Internal/MaxQueuedRexmitMessages/#text: 200 {}
+1646190713.961814 [0]    ddsperf: config: Domain/Internal/LeaseDuration/#text: 10 s {}
+1646190713.961872 [0]    ddsperf: config: Domain/Internal/WriterLingerDuration/#text: 1 s {}
+1646190713.961929 [0]    ddsperf: config: Domain/Internal/SocketReceiveBufferSize[@min]: default {}
+1646190713.961984 [0]    ddsperf: config: Domain/Internal/SocketReceiveBufferSize[@max]: default {}
+1646190713.962042 [0]    ddsperf: config: Domain/Internal/SocketSendBufferSize[@min]: 64 KiB {}
+1646190713.962098 [0]    ddsperf: config: Domain/Internal/SocketSendBufferSize[@max]: default {}
+1646190713.962156 [0]    ddsperf: config: Domain/Internal/NackDelay/#text: 100 ms {}
+1646190713.962214 [0]    ddsperf: config: Domain/Internal/AckDelay/#text: 10 ms {}
+1646190713.962272 [0]    ddsperf: config: Domain/Internal/AutoReschedNackDelay/#text: 1 s {}
+1646190713.962329 [0]    ddsperf: config: Domain/Internal/PreEmptiveAckDelay/#text: 10 ms {}
+1646190713.962385 [0]    ddsperf: config: Domain/Internal/ScheduleTimeRounding/#text: 0 s {}
+1646190713.962441 [0]    ddsperf: config: Domain/Internal/DDSI2DirectMaxThreads/#text: 1 {}
+1646190713.962496 [0]    ddsperf: config: Domain/Internal/SquashParticipants/#text: false {}
+1646190713.962551 [0]    ddsperf: config: Domain/Internal/SPDPResponseMaxDelay/#text: 0 s {}
+1646190713.962605 [0]    ddsperf: config: Domain/Internal/LateAckMode/#text: false {}
+1646190713.962661 [0]    ddsperf: config: Domain/Internal/RetryOnRejectBestEffort/#text: false {}
+1646190713.962715 [0]    ddsperf: config: Domain/Internal/GenerateKeyhash/#text: false {}
+1646190713.962774 [0]    ddsperf: config: Domain/Internal/MaxSampleSize/#text: 2147483647 B {}
+1646190713.962829 [0]    ddsperf: config: Domain/Internal/WriteBatch/#text: false {}
+1646190713.962884 [0]    ddsperf: config: Domain/Internal/LivelinessMonitoring/#text: false {}
+1646190713.962939 [0]    ddsperf: config: Domain/Internal/LivelinessMonitoring[@StackTraces]: true {}
+1646190713.962998 [0]    ddsperf: config: Domain/Internal/LivelinessMonitoring[@Interval]: 1 s {}
+1646190713.963053 [0]    ddsperf: config: Domain/Internal/MonitorPort/#text: -1 {}
+1646190713.963108 [0]    ddsperf: config: Domain/Internal/AssumeMulticastCapable/#text:  {}
+1646190713.963163 [0]    ddsperf: config: Domain/Internal/PrioritizeRetransmit/#text: true {}
+1646190713.963218 [0]    ddsperf: config: Domain/Internal/UseMulticastIfMreqn/#text: 0 {}
+1646190713.963273 [0]    ddsperf: config: Domain/Internal/RediscoveryBlacklistDuration/#text: 0 s {}
+1646190713.963329 [0]    ddsperf: config: Domain/Internal/RediscoveryBlacklistDuration[@enforce]: false {}
+1646190713.963384 [0]    ddsperf: config: Domain/Internal/MultipleReceiveThreads/#text: default {}
+1646190713.963537 [0]    ddsperf: config: Domain/Internal/MultipleReceiveThreads[@maxretries]: 4294967295 {}
+1646190713.963598 [0]    ddsperf: config: Domain/Internal/Test/XmitLossiness/#text: 0 {}
+1646190713.963656 [0]    ddsperf: config: Domain/Internal/Watermarks/WhcLow/#text: 1 KiB {}
+1646190713.963716 [0]    ddsperf: config: Domain/Internal/Watermarks/WhcHigh/#text: 500 KiB {1}
+1646190713.963774 [0]    ddsperf: config: Domain/Internal/Watermarks/WhcHighInit/#text: 30 KiB {}
+1646190713.963830 [0]    ddsperf: config: Domain/Internal/Watermarks/WhcAdaptive/#text: true {}
+1646190713.963889 [0]    ddsperf: config: Domain/Internal/BurstSize/MaxRexmit/#text: 1 MiB {}
+1646190713.963945 [0]    ddsperf: config: Domain/Internal/BurstSize/MaxInitTransmit/#text: 4294967295 {}
+1646190713.964001 [0]    ddsperf: config: Domain/Internal/EnableExpensiveChecks/#text:  [ignored] {}
+1646190713.964058 [0]    ddsperf: config: Domain/TCP/NoDelay/#text: true {}
+1646190713.964114 [0]    ddsperf: config: Domain/TCP/Port/#text: -1 {}
+1646190713.964171 [0]    ddsperf: config: Domain/TCP/ReadTimeout/#text: 2 s {}
+1646190713.964228 [0]    ddsperf: config: Domain/TCP/WriteTimeout/#text: 2 s {}
+1646190713.964282 [0]    ddsperf: config: Domain/TCP/AlwaysUsePeeraddrForUnicast/#text: false {}
+1646190713.964337 [0]    ddsperf: config: Domain[@Id]: 0 {1}
+1646190713.964820 [0]    ddsperf: started at 1646190713.06964419 -- 2022-03-01 21:11:53-06:00
+1646190713.964946 [0]    ddsperf: udp initialized
+1646190713.973323 [0]    ddsperf: interfaces: lo udp/127.0.0.1(q1) wlan0 wireless udp/172.27.117.36(q9)
+1646190713.973461 [0]    ddsperf: selected interfaces: wlan0 (index 3)
+1646190713.973510 [0]    ddsperf: presumed flaky multicast, use for SPDP only
+1646190713.973627 [0]    ddsperf: ownip: udp/172.27.117.36
+1646190713.973677 [0]    ddsperf: extmask: invalid/0 (not applicable)
+1646190713.973726 [0]    ddsperf: SPDP MC: udp/239.255.0.1
+1646190713.973774 [0]    ddsperf: default MC: udp/239.255.0.1
+1646190713.973817 [0]    ddsperf: SSM support included
+1646190713.974208 [0]    ddsperf: failed to increase socket receive buffer size to 1048576 bytes, continuing with 360448 bytes
+1646190713.974326 [0]    ddsperf: rtps_init: uc ports: disc 0 data 0
+1646190713.974377 [0]    ddsperf: rtps_init: domainid 0 participantid -2
+1646190713.974430 [0]    ddsperf: Unicast Ports: discovery 42341 data 42341
+1646190713.974539 [0]    ddsperf: failed to increase socket receive buffer size to 1048576 bytes, continuing with 360448 bytes
+1646190713.974683 [0]    ddsperf: failed to increase socket receive buffer size to 1048576 bytes, continuing with 360448 bytes
+1646190713.974773 [0]    ddsperf: Multicast Ports: discovery 7400 data 7401 
+1646190713.974856 [0]    ddsperf: failed to increase socket receive buffer size to 1048576 bytes, continuing with 360448 bytes
+1646190713.974973 [0]    ddsperf: interface wlan0: transmit port 46746
+[4064] participant rts-rpi1:4064: new (self)
+[4064] participant rts-rpi1:4061: new
+[4064] 2.000  rts-rpi1:4061 size 12 mean 187.248us min 158.243us 50% 179.022us 90% 206.051us 99% 320.728us max 2506.886us cnt 2627
+[4064] 2.000  rss:2.5MB vcsw:2641 ivcsw:0 recvUC:19%+38%
+[4064] 3.000  rts-rpi1:4061 size 12 mean 193.634us min 157.846us 50% 182.319us 90% 219.041us 99% 323.405us max 3710.615us cnt 2553
+[4064] 3.000  rss:2.5MB vcsw:2566 ivcsw:0 ddsperf:1%+0% recvUC:22%+36%
+[4064] 4.000  rts-rpi1:4061 size 12 mean 190.267us min 157.817us 50% 179.818us 90% 211.708us 99% 352.071us max 3164.511us cnt 2495
+[4064] 4.000  rss:2.5MB vcsw:2507 ivcsw:0 ddsperf:0%+1% recvUC:25%+35%
+1646190718.103126 [0]    ddsperf: udp finalized
+1646190718.103613 [0]    ddsperf: Finis.

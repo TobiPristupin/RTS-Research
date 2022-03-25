@@ -1,0 +1,2 @@
+ping pong: undefined mode string
+Single Process Test. All output should be in the corresponding ping file
