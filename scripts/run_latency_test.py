@@ -16,7 +16,7 @@ import latency_plotter
 
 default_duration = 10 
 default_ddsperf_bin_path = "/home/pi/Programs/CycloneDDS/bin/ddsperf"
-default_CYCLONEDDS_URI = "CYCLONEDDS_URI=file:///home/pi/Documents/cyclone_config.xml"
+default_CYCLONEDDS_URI = "CYCLONEDDS_URI=file:///home/pi/Documents/rts/cyclone_config.xml"
 
 parser = argparse.ArgumentParser(description="Run Latency Test")
 parser.add_argument("-s", "--single-process", action="store_true", help="Run ping and pong in the same process. Calls ddsperf with -L flag.")

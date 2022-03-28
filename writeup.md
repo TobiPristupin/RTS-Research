@@ -41,7 +41,9 @@
 
 * Read the two papers below, and summarized the key information.
 * "Exploring the Performance of ROS2 Paper" claims that DDS end-to-end latencies are constant while message data size is lower than maximum packet size (64 KB). On the other hand, as one large message is divided into several packets, the latencies sharply increase.
-  * Looking at the data on the Cyclone page, we can see how latency increases as message size increases. The graph is not very granular. Where is the point of maximum increase? I will try to find the derivative of the line. This point should be at or around 64KB to confirm the claim of the paper. Regardless of where it is, this point is worthy of analysis. We can look at the syscalls of cyclone right before and right after that point to see what is changing. We can also look at the packets being sent through loopback.
+  * I will investigate to determine how much of the latency comes down to fragmentation vs other things, especially as packet size increases. One interesting problem is how to aggregate data. For every second of `ddsperf` execution, I get information about the 90% and 95% percentile of the last 2-3k roundtrip messages. For a 10 second benchmark with a fixed payload size, I get 10 90th and 95th percentile values. I would like to aggregate these 10 values into one, so I can then re-run my benchmark with another payload size, aggregate everything of this new benchmark into one value, and plot these two values as payload size changes. How do I aggregate percentiles? According to multiple sources on the internet, percentiles can not be aggregated in a mathematically meaningful way. The best solution is to look at the raw data that generated the 10 percentiles data points, and calculate a single percentile data point from the raw data. This is not possible with `ddsperf`. The solution I compromised on, which is the same one that Cyclone uses for the graphs shown on their webpage, is to simply take the maximum value of those 10 percentile data points. That way, we at least make sure that we are not obscuring the worst case when aggregating. What other alternatives are there? Ask Gill.
+  * Generated plots for increasing size benchmark. See `plots/increasing_fig.png`
+  * Conclusion: An important aspect of minimizing latency is to minimize packet size and prevent fragmentation. The paper claims 64KB as a good estimate of maximum size, since it is the maximum packet size. However, this is highly dependent on the architecture (what network is being used, what packet sizes does it support, the configuration of DDS, etc.) As a general piece of advice, always try to minimize the amount of data sent.
 * Interesting finding: According to the Cyclone docs, `FragmentSize` determines the max size the serialized form of a sample can be. Anything larger than that, and it will be split. 
 
 #### Latency Analysis of ROS2 Multi-Node Systems Paper (https://arxiv.org/pdf/2101.02074.pdf)
@@ -62,6 +64,7 @@
   * Possibly analyze syscalls to see what happens when payload size is larger than 64KB. Is the splitting causing major overhead?
 * Investigate `-u` option in ddsperf, which uses best-effort instead of reliable
 * How does Iceoryx work? Can it really be used to transform Cyclone into a shared memory DDS?.
+* Redo plots missing max!
 
 * Start messing around with QoS configurations and observe changes.
 * Make plotting script better
