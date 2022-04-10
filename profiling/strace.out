@@ -1,0 +1,109 @@
+strace: Process 12403 attached
+strace: Process 12404 attached
+strace: Process 12405 attached
+strace: Process 12411 attached
+strace: Process 12412 attached
+strace: Process 12417 attached
+strace: Process 12418 attached
+strace: Process 12419 attached
+strace: Process 12420 attached
+strace: Process 12421 attached
+strace: Process 12422 attached
+strace: Process 12423 attached
+strace: Process 12424 attached
+strace: Process 12425 attached
+strace: Process 12427 attached
+strace: Process 12428 attached
+strace: Process 12429 attached
+strace: Process 12430 attached
+strace: Process 12432 attached
+strace: Process 12443 attached
+strace: Process 12444 attached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- -----------------------
+ 54.27   12.545630        9862      1272       241 futex
+ 17.89    4.135565      827113         5           wait4
+  9.63    2.226137      202376        11           _newselect
+  8.10    1.872406      936203         2           rt_sigtimedwait
+  3.52    0.814576         110      7397           clock_gettime64
+  2.52    0.582574         508      1145           recvmsg
+  1.21    0.279452         249      1121           sendmsg
+  0.60    0.137936         192       715         2 read
+  0.43    0.098918         175       564       134 openat
+  0.29    0.067141         134       498           close
+  0.25    0.058193         137       422           fstat64
+  0.16    0.037011         129       286           mmap2
+  0.12    0.028440        1896        15         6 execve
+  0.12    0.027295         580        47           clock_nanosleep_time64
+  0.11    0.026431         124       213           mprotect
+  0.10    0.022841         242        94           munmap
+  0.07    0.016848         842        20           clone
+  0.07    0.016242          99       164       102 stat64
+  0.05    0.012516          70       178           _llseek
+  0.05    0.011144          90       123           rt_sigaction
+  0.04    0.008351         151        55           rt_sigprocmask
+  0.02    0.005494         249        22           write
+  0.02    0.005300         126        42           socket
+  0.02    0.004989         191        26           prctl
+  0.02    0.004859         142        34           brk
+  0.02    0.004698          60        78         4 prlimit64
+  0.02    0.004561          91        50           fcntl64
+  0.02    0.004454         222        20           sendto
+  0.02    0.003960         146        27           getpid
+  0.02    0.003914         130        30           setsockopt
+  0.01    0.003406          85        40           setresuid32
+  0.01    0.003317         150        22           set_robust_list
+  0.01    0.003093         257        12           getrusage
+  0.01    0.002997         187        16           madvise
+  0.01    0.002989         249        12           getdents64
+  0.01    0.002970         198        15           readlink
+  0.01    0.002803          80        35        27 ioctl
+  0.01    0.002663         190        14        12 connect
+  0.01    0.002138          89        24           recvfrom
+  0.01    0.002042          85        24           getsockopt
+  0.01    0.001872         110        17         4 access
+  0.01    0.001418         101        14           pread64
+  0.01    0.001396         116        12           getsockname
+  0.01    0.001370          76        18           setresgid32
+  0.01    0.001321         165         8           uname
+  0.01    0.001259         104        12           bind
+  0.00    0.001143          76        15           getuid32
+  0.00    0.001066          88        12           poll
+  0.00    0.001022         170         6           send
+  0.00    0.000800         200         4         4 statfs
+  0.00    0.000781          78        10           setgroups32
+  0.00    0.000771          85         9           set_tls
+  0.00    0.000725         362         2           kill
+  0.00    0.000558         139         4           pipe2
+  0.00    0.000525          87         6           setitimer
+  0.00    0.000513         256         2           pipe
+  0.00    0.000432          72         6           umask
+  0.00    0.000409         102         4         2 ppoll_time64
+  0.00    0.000382         191         2           sched_setscheduler
+  0.00    0.000336          67         5           getcwd
+  0.00    0.000331          55         6           geteuid32
+  0.00    0.000295          73         4           getgroups32
+  0.00    0.000284          71         4           getresuid32
+  0.00    0.000284          71         4           getresgid32
+  0.00    0.000282          70         4           ugetrlimit
+  0.00    0.000271          67         4           set_tid_address
+  0.00    0.000219         109         2           lstat64
+  0.00    0.000214         107         2           sched_get_priority_min
+  0.00    0.000185          92         2         2 rt_sigreturn
+  0.00    0.000180         180         1           sysinfo
+  0.00    0.000180          90         2           setgid32
+  0.00    0.000178          89         2           getpgid
+  0.00    0.000174          87         2           getpgrp
+  0.00    0.000164          54         3           getppid
+  0.00    0.000150          75         2           dup
+  0.00    0.000148          74         2           sched_get_priority_max
+  0.00    0.000148          49         3           getgid32
+  0.00    0.000148          49         3           getegid32
+  0.00    0.000142          71         2           sched_setaffinity
+  0.00    0.000135          67         2           getsid
+  0.00    0.000125          62         2           sched_getaffinity
+  0.00    0.000079          19         4           dup2
+  0.00    0.000000           0         2           sigreturn
+  0.00    0.000000           0         1           vfork
+------ ----------- ----------- --------- --------- -----------------------
+100.00   23.118709        1528     15123       540 total

@@ -21,7 +21,7 @@
 
 * Finished analysis script. Script is split into two, one that runs the commands and outputs it into a file. The second script will parse the data and produce a plot.
 * I began to try out plots with different QoS options. I was expecting more interesting QoS options regarding performance, but the majority of options are mostly related to networking and not very relevant parameters. I will continue to dig deeper into the parameters, since there are many.
-* There are two parameters that I found produced very interesting results. These are `MaxMessageSize` and `ParameterSize`. By increasing these two parameters, we can get better latency. See `plots/fig_default_message_size.png` and `plots/fig_message_size_x10.png`
+* There are two parameters that I found produced very interesting results. These are `MaxMessageSize` and `FragmentSize`. By increasing these two parameters, we can get better latency. See `plots/fig_default_message_size.png` and `plots/fig_message_size_x10.png`
 
 
 ## Meeting Mar 22
@@ -45,6 +45,7 @@
   * Generated plots for increasing size benchmark. See `plots/increasing_fig.png`
   * Conclusion: An important aspect of minimizing latency is to minimize packet size and prevent fragmentation. The paper claims 64KB as a good estimate of maximum size, since it is the maximum packet size. However, this is highly dependent on the architecture (what network is being used, what packet sizes does it support, the configuration of DDS, etc.) As a general piece of advice, always try to minimize the amount of data sent.
 * Interesting finding: According to the Cyclone docs, `FragmentSize` determines the max size the serialized form of a sample can be. Anything larger than that, and it will be split. 
+* Started on profiling. More information is the `Profiling` subheading.
 
 #### Latency Analysis of ROS2 Multi-Node Systems Paper (https://arxiv.org/pdf/2101.02074.pdf)
 * "Our findings indicate that end-to-end latency strongly depends on the used DDS middleware. Moreover, we show that ROS2 can lead to 50 % latency overhead compared to using low-level DDS communications. "
@@ -59,11 +60,48 @@
 
 * Current State of the Project: If we want to improve latency, we can do two things. First option is to work in a single process setting. This is ideal. Second option is to use shared memory. Currently CycloneDDS does not support shared memory (it used loopback instead), but this is planned in the roadmap. Alternatively, Iceoryx could be investigated as a means to convert CycloneDDS into using shared memory. Finally, QoS options can be tweaked to improve latency. The most important options when it comes to latency are the message size, which in CycloneDDS correspond to `MaxMessageSize` and `ParameterSize`. According to "Exploring the Performance of ROS 2", it is ideal to keep message data size under 64KB for ROS2, to avoid fragmentation. However, my experiments on CycloneDDS show that a larger size leads to better latency. See `plots/fig_default_message_size.png` and `plots/fig_message_size_x10.png`. I must investigate these two contradicting results. I believe that the contradiction comes from the fact that I am confounding the QoS options with the actual payload size sent by `ddsperf`.
 
+## Meeting Apr 5
+
+#### Profiling
+First step was to get an overall feel of the program. I ran `ddsperf` and used the `time` command to obtain the total elapsed time, the time spent in user mode, and the time spent in kernel mode. Results indicated that a majority of the time was spent in kernel mode. 
+
+I decided to run `strace` with `ddsperf` to inspect the system calls being made. First I packaged the `ddsperf` command into a bash script `ddsperf_cmd.sh`. Then I ran `sudo strace -c -f sh ddsperf_cmd.sh 2> strace.out`. Note the usage of the `-f` argument, which will cause `strace` to attach and trace child processes. The `-c` argument causes `strace` to print out a summary of all syscalls, and the percentage of time spent in each of them. Here are the most relevant syscalls in terms of time spent:
+
+|                 | Time Spent (%) |
+|-----------------|----------------|
+| futex           | 54.27%         |
+| wait4           | 17.89%         |
+| _newselect      | 9.63%          |
+| rt_sigtimedwait | 8.10%          |
+
+The full trace can be found in `profiling/strace_summary.out`. Interestingly, a very large amount of time is spent in `futex` and `wait4` calls, which suggests that there is some potential for improvement regarding synchronization in CycloneDDS. CycloneDDS could possibly benefit by identifying locks with high contention and increasing lock granularity.
+
+**Important:** Increasing the size of the payload does not affect these results.
+
+Futexes make threads to go to sleep, which requires two context switches. It may be the case that many futexes that are held for very short times could be replaced by spin locks instead. Spin locks do not incur context switches, and could possibly improve latency.
+
+Where to go from here? 
+* Need a way to understand where the latency for the program is coming from
+* Certainly there is a lot of lock contention, due to the large amount of time spent waiting for a futex. This could be a potential source of unexpected high latency. 
+  * One possibility could be to replace some futex locks with spin locks. However, would this be worth it? I don't think the overhead of futexes is that much greater than just using a spin lock
+  * Otherwise to reduce lock contention we could look at locks that are acquired for a very long time, and attempting to reduce the time the lock is needed, possibly by adding more lock granularity. We would need a way to track the contention for a given lock. There are interesting tools to measure contention, see http://0pointer.de/blog/projects/mutrace.html plus a google search.
+
+try not pinning
+figure out kernelshark trace child processes
+trace-cmd with futex syscalls
+
+
+**Running strace with sudo** 
+`sudo taskset -c 0 chrt -f 80 /home/pi/Programs/CycloneDDS/bin/ddsperf pong -D 5 &> /dev/null & sudo strace -u pi sudo -k  taskset -c 1 chrt -f 80 /home/pi/Programs/CycloneDDS/bin/ddsperf ping -D 5 2> strace.out`
+[here](https://stackoverflow.com/a/57696584/8402038) is an explanation of why using `sudo` with `strace` requires this slight workaround. 
+
+
+
 ## TODO
 * Investigate the claim that best latency is achieved with message sizes under 64KB. What is the relationship between the payload sizes sent by `ddsperf` and the message size QoS options of CycloneDDS?
   * Possibly analyze syscalls to see what happens when payload size is larger than 64KB. Is the splitting causing major overhead?
 * Investigate `-u` option in ddsperf, which uses best-effort instead of reliable
-* How does Iceoryx work? Can it really be used to transform Cyclone into a shared memory DDS?.
+* How does Iceoryx work? Can it really be used to transform Cyclone into a shared memory DDS?. https://cyclonedds.io/docs/cyclonedds/latest/shared_memory.html
 * Redo plots missing max!
 
 * Start messing around with QoS configurations and observe changes.
