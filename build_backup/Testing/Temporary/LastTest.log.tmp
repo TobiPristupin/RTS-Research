@@ -1,0 +1,3017 @@
+Start testing: Feb 16 20:06 CST
+----------------------------------------------------------
+1/951 Testing: CUnit_idlc_descriptor_keys_nested
+1/951 Test: CUnit_idlc_descriptor_keys_nested
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "keys_nested"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_keys_nested" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl: struct test { @key @id(2) long a; short b; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct test { @key long a; @key short b; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct inner { @id(3) long i1; @id(1) short i2; }; struct outer { @key inner o1; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct inner { long i1; @key short i2; }; struct outer { @key inner o1; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct inner { @key @id(5) short i1; }; struct outer { @key @id(0) inner o1; @key @id(10) inner o2; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct inner { @key short i1; }; @nested struct mid { @key @id(3) char m1; @key @id(2) inner m2; @id(1) long m3; }; struct outer { @key @id(0) mid o1; @key @id(1) inner o2; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct inner { char i1; @key char i2; }; struct outer { @key @id(3) inner o1; @key @id(2) short o2; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct test { long a; short b; }; 
+#pragma keylist test a
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct test { long a; short b; }; 
+#pragma keylist test a b
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long i1; short i2; }; struct outer { inner o1; inner o2; }; 
+#pragma keylist outer o1.i1
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long i1; short i2; }; struct outer { inner o1; inner o2; }; 
+#pragma keylist outer o1.i1 o2.i1
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long i1; long i2; }; struct mid { inner m1; }; struct outer { inner o1, o2; inner o3[3]; mid o4; double o5; }; 
+#pragma keylist outer o4.m1.i2
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long i1; short i2; }; struct outer { inner o1; inner o2; }; 
+#pragma keylist outer o1.i1 
+ struct p { inner p1; }; 
+#pragma keylist p p1.i1 
+
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long i1; short i2; }; struct outer { inner o1; inner o2; }; 
+#pragma keylist outer 
+struct p { inner p1; }; 
+#pragma keylist p p1.i1 
+
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { long long i1; }; struct outer { inner o1; inner o2; }; 
+#pragma keylist outer o2.i1 o1.i1
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: struct inner { char i1; }; struct mid { short m1; inner m2; long m3; }; struct outer { mid o1; inner o2; }; 
+#pragma keylist outer o1.m1 o2.i1 o1.m2.i1
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts    238    238    238      0      n/a
+
+Elapsed time =    0.040 seconds
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_keys_nested" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_keys_nested" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/951 Testing: CUnit_idlc_descriptor_default_extensibility
+2/951 Test: CUnit_idlc_descriptor_default_extensibility
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "default_extensibility"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_default_extensibility" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl:  struct s { char f; };
+running test for idl:  struct s { char f; };
+running test for idl:  struct s { char f; };
+running test for idl:  union u switch(short) { case 1: char f; };
+running test for idl:  union u switch(short) { case 1: char f; };
+running test for idl: @appendable struct s { char f; };
+running test for idl: @extensibility(MUTABLE) struct s { char f; };
+running test for idl: @appendable union u switch(short) { case 1: char f; };
+running test for idl: @extensibility(APPENDABLE) union u switch(short) { case 1: char f; };
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts     54     54     54      0      n/a
+
+Elapsed time =    0.019 seconds
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_default_extensibility" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_default_extensibility" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/951 Testing: CUnit_idlc_descriptor_key_size
+3/951 Test: CUnit_idlc_descriptor_key_size
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "key_size"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_key_size" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl: @topic struct test { @key long a; @key short b; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key char a; @key long long b; @key short c; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct nested { @key char a; @key long long b; @key short c; }; @topic struct test { @key nested a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct nested { char a; short b; }; @topic struct test { @key nested a; @key long long b; @key char c; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key long a[5]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct nested { @key long long a; }; @topic struct test { @key nested a; long b[5]; @key char c; @key float d; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct nested1 { @key short a; }; @nested struct nested2 { @key long long a; }; @topic struct test { @key nested1 a; @key nested2 b; @key char c; @key nested1 d; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key char a[15]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key short a[6]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct nested { @key long long a; long b; }; @topic struct test { nested a; @key nested b; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key string<3> a; @key long long b; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key char a; @key string<3> b; @key long c; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key @id(2) float a; @key @id(1) char b; @key @id(0) double c; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key @id(0) char b; @key @id(1) double a; @key @id(2) float c; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key @id(0) char c1; @key @id(2) char c2; @key @id(4) char c3; @key @id(1) long l1; @key @id(3) long l2; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts    120    120    120      0      n/a
+
+Elapsed time =    0.036 seconds
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_key_size" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_key_size" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/951 Testing: CUnit_idlc_descriptor_key_valid_types
+4/951 Test: CUnit_idlc_descriptor_key_valid_types
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "key_valid_types"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_key_valid_types" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl: @topic struct test { @key boolean a; @key boolean b[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key char a; @key octet b; @key char c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key short a; @key unsigned short b; @key short c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key long a; @key unsigned long b; @key long c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key long long a; @key unsigned long long b; @key long long c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key float a; @key double b; @key float c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: enum e { E1, E2 }; @topic struct test { @key e a; @key e b[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: bitmask bm { BM1, BM2 }; @topic struct test { @key bm a; @key bm b[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @key string a; @key string<5> b; @key string c[3]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:8: Using array with string element type as part of the key is currently unsupported
+running test for idl: @topic struct test { @key string<5> a[2]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:8: Using array with string element type as part of the key is currently unsupported
+running test for idl: @topic struct test { @key sequence<long> a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:8: Using sequence type as part of the key is currently unsupported
+running test for idl: @topic struct test { @key sequence<long> a[2]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:8: Using array with collection element type as part of the key is currently unsupported
+running test for idl: @nested struct sub { long a; long b; }; @topic struct test { @key sub a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct sub { long a; }; @topic struct test { @key sub a[2]; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:40: Using array with aggregated element type as part of the key is currently unsupported
+running test for idl: @nested struct sub { @key long a; long b; }; @topic struct test { @key sub a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct sub { long a; sequence<long> b; }; @topic struct test { @key sub a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:9: Using sequence type as part of the key is currently unsupported
+running test for idl: @nested union u switch(long) { case 1: long a; }; @topic struct test { @key u a; }; 
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+1:9: Using union type as part of the key is currently unsupported
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts     61     61     61      0      n/a
+
+Elapsed time =    0.040 seconds
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_key_valid_types" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_key_valid_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/951 Testing: CUnit_idlc_descriptor_keys_inheritance
+5/951 Test: CUnit_idlc_descriptor_keys_inheritance
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "keys_inheritance"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_keys_inheritance" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl: @nested struct test_base { long a; }; @topic struct test : test_base { long c; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct test_base { @key long a; short b; }; @topic struct test : test_base { };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct test_base2 { @key long a2; }; @nested struct test_base1 : test_base2 { long a1; }; @topic struct test : test_base1 { long a; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct test_base2 { long a2; long b2; }; @nested struct test_base1 { @key long a1; @key test_base2 b1; }; @topic struct test : test_base1 { long c; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct test_base { @key @id(1) long a; @key @id(0) short b; }; @topic struct test : test_base { @id(2) long c; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested @appendable struct test_base { @key long a; short b; }; @topic @appendable struct test : test_base { long c; };
+1:84: Inheriting from appendable structs is unsafe
+running test for idl: @nested @mutable struct test_base { @key long a; short b; }; @topic @mutable struct test : test_base { long c; };
+running test for idl: @nested @mutable struct test_base2 { @key long a2; @key long b2; }; @nested @mutable struct test_base1 : test_base2 { long a1; }; @topic @mutable struct test : test_base1 { long a; };
+running test for idl: @nested @appendable struct test_base2 { long a2; long b2; }; @nested @mutable struct test_base1 { @key long a1; @key test_base2 b1; }; @topic @mutable struct test : test_base1 { long c; };
+running test for idl: @nested @mutable struct test_base { @key @id(1) long a; @key @id(0) short b; }; @topic @mutable struct test : test_base { @id(2) long c; };
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts     82     82     82      0      n/a
+
+Elapsed time =    0.025 seconds
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_keys_inheritance" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_keys_inheritance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/951 Testing: CUnit_idlc_descriptor_no_optimize
+6/951 Test: CUnit_idlc_descriptor_no_optimize
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_idlc" "-s" "idlc_descriptor" "-t" "no_optimize"
+Directory: /home/pi/Documents/cyclonedds/build/src/tools/idlc/tests
+"CUnit_idlc_descriptor_no_optimize" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+running test for idl: @topic struct test { long f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { long f1[100]; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { long f1[100]; long f2; float f3; char f4; boolean f5; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: enum en { E0, E1 }; @topic struct test { en f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: bitmask bm { B0, B1 }; @topic struct test { bm f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct s { long s1; }; @topic struct test { s f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct s2 { char f3[100]; }; @nested struct s1 { s2 f2; }; @topic struct test { s1 f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { string f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { string<100> f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { sequence<long> f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @external long f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic struct test { @external long f1[100]; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: enum en { E0, E1 }; @topic struct test { @external en f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct s { long s1; }; @topic struct test { @external s f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested struct s { @external long s1; }; @topic struct test { s f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @topic union test switch(short) { case 1: long f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+running test for idl: @nested union u switch(short) { case 1: long u1; }; @topic struct test { u f1; };
+No default extensibility provided. For one or more of the aggregated types in the IDL the extensibility is not explicitly set. Currently the default extensibility for these types is 'final', but this may change to 'appendable' in a future release because that is the default in the DDS XTypes specification.
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      1      1      0        5
+             asserts     85     85     85      0      n/a
+
+Elapsed time =    0.038 seconds
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_idlc_descriptor_no_optimize" end time: Feb 16 20:06 CST
+"CUnit_idlc_descriptor_no_optimize" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/951 Testing: CUnit_ddsrt_atomics_load_store
+7/951 Test: CUnit_ddsrt_atomics_load_store
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "load_store"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_load_store" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_load_store" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_load_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/951 Testing: CUnit_ddsrt_atomics_compare_and_swap
+8/951 Test: CUnit_ddsrt_atomics_compare_and_swap
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "compare_and_swap"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_compare_and_swap" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_compare_and_swap" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_compare_and_swap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/951 Testing: CUnit_ddsrt_atomics_increment
+9/951 Test: CUnit_ddsrt_atomics_increment
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "increment"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_increment" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_increment" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_increment" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/951 Testing: CUnit_ddsrt_atomics_decrement
+10/951 Test: CUnit_ddsrt_atomics_decrement
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "decrement"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_decrement" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_decrement" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_decrement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/951 Testing: CUnit_ddsrt_atomics_add
+11/951 Test: CUnit_ddsrt_atomics_add
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "add"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_add" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_add" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_add" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/951 Testing: CUnit_ddsrt_atomics_subtract
+12/951 Test: CUnit_ddsrt_atomics_subtract
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "subtract"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_subtract" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_subtract" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_subtract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/951 Testing: CUnit_ddsrt_atomics_and
+13/951 Test: CUnit_ddsrt_atomics_and
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "and"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_and" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_and" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_and" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/951 Testing: CUnit_ddsrt_atomics_or
+14/951 Test: CUnit_ddsrt_atomics_or
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_atomics" "-t" "or"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_atomics_or" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_atomics_or" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_atomics_or" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/951 Testing: CUnit_ddsrt_environ_setenv
+15/951 Test: CUnit_ddsrt_environ_setenv
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_environ" "-t" "setenv"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_environ_setenv" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      7      7      7      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_environ_setenv" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_environ_setenv" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/951 Testing: CUnit_ddsrt_environ_getenv
+16/951 Test: CUnit_ddsrt_environ_getenv
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_environ" "-t" "getenv"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_environ_getenv" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      9      9      9      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_environ_getenv" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_environ_getenv" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/951 Testing: CUnit_ddsrt_environ_bad_name
+17/951 Test: CUnit_ddsrt_environ_bad_name
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_environ" "-t" "bad_name"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_environ_bad_name" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      8      8      8      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_environ_bad_name" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_environ_bad_name" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/951 Testing: CUnit_ddsrt_environ_expand
+18/951 Test: CUnit_ddsrt_environ_expand
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_environ" "-t" "expand"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_environ_expand" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+1645063572.686701 [] cunit_ddsr: X: invalid expansion
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts    210    210    210      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_environ_expand" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_environ_expand" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/951 Testing: CUnit_ddsrt_environ_expand_sh
+19/951 Test: CUnit_ddsrt_environ_expand_sh
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_environ" "-t" "expand_sh"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_environ_expand_sh" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+1645063572.706699 [] cunit_ddsr: X: invalid expansion
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts    210    210    210      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_environ_expand_sh" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_environ_expand_sh" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/951 Testing: CUnit_ddsrt_heap_malloc
+20/951 Test: CUnit_ddsrt_heap_malloc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "malloc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_malloc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts    101    101    101      0      n/a
+
+Elapsed time =    0.011 seconds
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_malloc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_malloc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/951 Testing: CUnit_ddsrt_heap_calloc
+21/951 Test: CUnit_ddsrt_heap_calloc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "calloc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_calloc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts    182    182    182      0      n/a
+
+Elapsed time =    0.007 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_calloc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_calloc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/951 Testing: CUnit_ddsrt_heap_realloc
+22/951 Test: CUnit_ddsrt_heap_realloc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "realloc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_realloc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+ddsrt_realloc((nil)) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 1
+ddsrt_realloc(0x6f0be0) 1 -> 2
+ddsrt_realloc(0x6f0be0) 2 -> 3
+ddsrt_realloc(0x6f0be0) 3 -> 4
+ddsrt_realloc(0x6f0be0) 4 -> 5
+ddsrt_realloc(0x6f0be0) 5 -> 10
+ddsrt_realloc(0x6f0be0) 10 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 257
+ddsrt_realloc(0x6f0be0) 257 -> 1024
+ddsrt_realloc(0x6f0be0) 1024 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 2
+ddsrt_realloc(0x6f0be0) 2 -> 4
+ddsrt_realloc(0x6f0be0) 4 -> 6
+ddsrt_realloc(0x6f0be0) 6 -> 8
+ddsrt_realloc(0x6f0be0) 8 -> 10
+ddsrt_realloc(0x6f0be0) 10 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 40
+ddsrt_realloc(0x6f0be0) 40 -> 514
+ddsrt_realloc(0x6f0be0) 514 -> 2048
+ddsrt_realloc(0x6f0be0) 2048 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 3
+ddsrt_realloc(0x6f0be0) 3 -> 6
+ddsrt_realloc(0x6f0be0) 6 -> 9
+ddsrt_realloc(0x6f0be0) 9 -> 12
+ddsrt_realloc(0x6f0be0) 12 -> 15
+ddsrt_realloc(0x6f0be0) 15 -> 30
+ddsrt_realloc(0x6f0be0) 30 -> 60
+ddsrt_realloc(0x6f0be0) 60 -> 771
+ddsrt_realloc(0x6f0be0) 771 -> 3072
+ddsrt_realloc(0x6f0be0) 3072 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 4
+ddsrt_realloc(0x6f0be0) 4 -> 8
+ddsrt_realloc(0x6f0be0) 8 -> 12
+ddsrt_realloc(0x6f0be0) 12 -> 16
+ddsrt_realloc(0x6f0be0) 16 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 40
+ddsrt_realloc(0x6f0be0) 40 -> 80
+ddsrt_realloc(0x6f0be0) 80 -> 1028
+ddsrt_realloc(0x6f0be0) 1028 -> 4096
+ddsrt_realloc(0x6f0be0) 4096 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 5
+ddsrt_realloc(0x6f0be0) 5 -> 10
+ddsrt_realloc(0x6f0be0) 10 -> 15
+ddsrt_realloc(0x6f0be0) 15 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 25
+ddsrt_realloc(0x6f0be0) 25 -> 50
+ddsrt_realloc(0x6f0be0) 50 -> 100
+ddsrt_realloc(0x6f0be0) 100 -> 1285
+ddsrt_realloc(0x6f0be0) 1285 -> 5120
+ddsrt_realloc(0x6f0be0) 5120 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 10
+ddsrt_realloc(0x6f0be0) 10 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 30
+ddsrt_realloc(0x6f0be0) 30 -> 40
+ddsrt_realloc(0x6f0be0) 40 -> 50
+ddsrt_realloc(0x6f0be0) 50 -> 100
+ddsrt_realloc(0x6f0be0) 100 -> 200
+ddsrt_realloc(0x6f0be0) 200 -> 2570
+ddsrt_realloc(0x6f0be0) 2570 -> 10240
+ddsrt_realloc(0x6f0be0) 10240 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 20
+ddsrt_realloc(0x6f0be0) 20 -> 40
+ddsrt_realloc(0x6f0be0) 40 -> 60
+ddsrt_realloc(0x6f0be0) 60 -> 80
+ddsrt_realloc(0x6f0be0) 80 -> 100
+ddsrt_realloc(0x6f0be0) 100 -> 200
+ddsrt_realloc(0x6f0be0) 200 -> 400
+ddsrt_realloc(0x6f0be0) 400 -> 5140
+ddsrt_realloc(0x6f0be0) 5140 -> 20480
+ddsrt_realloc(0x6f0be0) 20480 -> 0
+ddsrt_realloc(0x6f0be0) 0 -> 257
+ddsrt_realloc(0x6f0be0) 257 -> 514
+ddsrt_realloc(0x6f0be0) 514 -> 771
+ddsrt_realloc(0x6f0be0) 771 -> 1028
+ddsrt_realloc(0x6f0be0) 1028 -> 1285
+ddsrt_realloc(0x6f0be0) 1285 -> 2570
+ddsrt_realloc(0x6f0be0) 2570 -> 5140
+ddsrt_realloc(0x6f0be0) 5140 -> 66049
+ddsrt_realloc(0x6f0be0) 66049 -> 263168
+ddsrt_realloc(0xb6d28008) 263168 -> 0
+ddsrt_realloc(0xb6d28008) 0 -> 1024
+ddsrt_realloc(0xb6d28008) 1024 -> 2048
+ddsrt_realloc(0xb6d28008) 2048 -> 3072
+ddsrt_realloc(0xb6d28008) 3072 -> 4096
+ddsrt_realloc(0xb6d28008) 4096 -> 5120
+ddsrt_realloc(0xb6d28008) 5120 -> 10240
+ddsrt_realloc(0xb6d28008) 10240 -> 20480
+ddsrt_realloc(0xb6d28008) 20480 -> 263168
+ddsrt_realloc(0xb6d28008) 263168 -> 1048576
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts    173    173    173      0      n/a
+
+Elapsed time =    0.011 seconds
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_realloc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_realloc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/951 Testing: CUnit_ddsrt_heap_malloc_s
+23/951 Test: CUnit_ddsrt_heap_malloc_s
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "malloc_s"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_malloc_s" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.606 seconds
+<end of output>
+Test time =   0.62 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_malloc_s" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_malloc_s" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/951 Testing: CUnit_ddsrt_heap_calloc_s
+24/951 Test: CUnit_ddsrt_heap_calloc_s
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "calloc_s"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_calloc_s" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts    101    101    101      0      n/a
+
+Elapsed time =    0.325 seconds
+<end of output>
+Test time =   0.34 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_calloc_s" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_calloc_s" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/951 Testing: CUnit_ddsrt_heap_ddsrt_realloc_s
+25/951 Test: CUnit_ddsrt_heap_ddsrt_realloc_s
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_heap" "-t" "ddsrt_realloc_s"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_heap_ddsrt_realloc_s" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+0x61ebe0 = ddsrt_realloc_s((nil)) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 1
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 1 -> 2
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 2 -> 3
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 3 -> 4
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 4 -> 5
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 5 -> 10
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 10 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 257
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 257 -> 1024
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 1024 -> 8192
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 8192 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 2
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 2 -> 4
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 4 -> 6
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 6 -> 8
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 8 -> 10
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 10 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 40
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 40 -> 514
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 514 -> 2048
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 2048 -> 16384
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 16384 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 3
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 3 -> 6
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 6 -> 9
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 9 -> 12
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 12 -> 15
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 15 -> 30
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 30 -> 60
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 60 -> 771
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 771 -> 3072
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 3072 -> 24576
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 24576 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 4
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 4 -> 8
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 8 -> 12
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 12 -> 16
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 16 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 40
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 40 -> 80
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 80 -> 1028
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 1028 -> 4096
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 4096 -> 32768
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 32768 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 5
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 5 -> 10
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 10 -> 15
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 15 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 25
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 25 -> 50
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 50 -> 100
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 100 -> 1285
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 1285 -> 5120
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 5120 -> 40960
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 40960 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 10
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 10 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 30
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 30 -> 40
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 40 -> 50
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 50 -> 100
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 100 -> 200
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 200 -> 2570
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 2570 -> 10240
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 10240 -> 81920
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 81920 -> 0
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 0 -> 20
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 20 -> 40
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 40 -> 60
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 60 -> 80
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 80 -> 100
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 100 -> 200
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 200 -> 400
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 400 -> 5140
+0x61ebe0 = ddsrt_realloc_s(0x61ebe0) 5140 -> 20480
+0xb6d22008 = ddsrt_realloc_s(0x61ebe0) 20480 -> 163840
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 163840 -> 0
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 0 -> 257
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 257 -> 514
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 514 -> 771
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 771 -> 1028
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 1028 -> 1285
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 1285 -> 2570
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 2570 -> 5140
+0xb6d22008 = ddsrt_realloc_s(0xb6d22008) 5140 -> 66049
+0xb6ce1008 = ddsrt_realloc_s(0xb6d22008) 66049 -> 263168
+0xb6ade008 = ddsrt_realloc_s(0xb6ce1008) 263168 -> 2105344
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 2105344 -> 0
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 0 -> 1024
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 1024 -> 2048
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 2048 -> 3072
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 3072 -> 4096
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 4096 -> 5120
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 5120 -> 10240
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 10240 -> 20480
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 20480 -> 263168
+0xb6ade008 = ddsrt_realloc_s(0xb6ade008) 263168 -> 1048576
+0xb62dd008 = ddsrt_realloc_s(0xb6ade008) 1048576 -> 8388608
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 8388608 -> 0
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 0 -> 8192
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 8192 -> 16384
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 16384 -> 24576
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 24576 -> 32768
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 32768 -> 40960
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 40960 -> 81920
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 81920 -> 163840
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 163840 -> 2105344
+0xb62dd008 = ddsrt_realloc_s(0xb62dd008) 2105344 -> 8388608
+0xb22dc008 = ddsrt_realloc_s(0xb62dd008) 8388608 -> 67108864
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts    136    136    136      0      n/a
+
+Elapsed time =    0.548 seconds
+<end of output>
+Test time =   0.57 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_heap_ddsrt_realloc_s" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_heap_ddsrt_realloc_s" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/951 Testing: CUnit_ddsrt_getifaddrs_ipv4
+26/951 Test: CUnit_ddsrt_getifaddrs_ipv4
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_getifaddrs" "-t" "ipv4"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_getifaddrs_ipv4" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      8      8      8      0      n/a
+
+Elapsed time =    0.002 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_getifaddrs_ipv4" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_getifaddrs_ipv4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/951 Testing: CUnit_ddsrt_getifaddrs_null_filter
+27/951 Test: CUnit_ddsrt_getifaddrs_null_filter
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_getifaddrs" "-t" "null_filter"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_getifaddrs_null_filter" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      9      9      9      0      n/a
+
+Elapsed time =    0.004 seconds
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_getifaddrs_null_filter" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_getifaddrs_null_filter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/951 Testing: CUnit_ddsrt_getifaddrs_empty_filter
+28/951 Test: CUnit_ddsrt_getifaddrs_empty_filter
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_getifaddrs" "-t" "empty_filter"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_getifaddrs_empty_filter" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_getifaddrs_empty_filter" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_getifaddrs_empty_filter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/951 Testing: CUnit_ddsrt_getifaddrs_ipv6
+29/951 Test: CUnit_ddsrt_getifaddrs_ipv6
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_getifaddrs" "-t" "ipv6"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_getifaddrs_ipv6" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts      8      8      8      0      n/a
+
+Elapsed time =    0.002 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_getifaddrs_ipv6" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_getifaddrs_ipv6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/951 Testing: CUnit_ddsrt_getifaddrs_ipv4_n_ipv6
+30/951 Test: CUnit_ddsrt_getifaddrs_ipv4_n_ipv6
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_getifaddrs" "-t" "ipv4_n_ipv6"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_getifaddrs_ipv4_n_ipv6" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        4
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.003 seconds
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_getifaddrs_ipv4_n_ipv6" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_getifaddrs_ipv4_n_ipv6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/951 Testing: CUnit_ddsrt_sync_mutex_lock_conc
+31/951 Test: CUnit_ddsrt_sync_mutex_lock_conc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "mutex_lock_conc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_mutex_lock_conc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_mutex_lock_conc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_mutex_lock_conc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/951 Testing: CUnit_ddsrt_sync_mutex_trylock
+32/951 Test: CUnit_ddsrt_sync_mutex_trylock
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "mutex_trylock"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_mutex_trylock" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_mutex_trylock" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_mutex_trylock" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/951 Testing: CUnit_ddsrt_sync_mutex_trylock_conc
+33/951 Test: CUnit_ddsrt_sync_mutex_trylock_conc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "mutex_trylock_conc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_mutex_trylock_conc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_mutex_trylock_conc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_mutex_trylock_conc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/951 Testing: CUnit_ddsrt_sync_once_conc
+34/951 Test: CUnit_ddsrt_sync_once_conc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "once_conc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_once_conc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts     25     25     25      0      n/a
+
+Elapsed time =    0.009 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_once_conc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_once_conc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+35/951 Testing: CUnit_ddsrt_sync_cond_waitfor
+35/951 Test: CUnit_ddsrt_sync_cond_waitfor
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "cond_waitfor"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_cond_waitfor" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+waited for 100100765 (nanoseconds)
+expected to wait 100000000 (nanoseconds)
+woke up 0 times
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_cond_waitfor" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_cond_waitfor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/951 Testing: CUnit_ddsrt_sync_cond_waituntil
+36/951 Test: CUnit_ddsrt_sync_cond_waituntil
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "cond_waituntil"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_cond_waituntil" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+waited until 1645063574893704924 (nanoseconds)
+expected to wait until 1645063574893600363 (nanoseconds)
+woke up 0 times
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_cond_waituntil" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_cond_waituntil" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/951 Testing: CUnit_ddsrt_sync_rwlock_trylock_conc
+37/951 Test: CUnit_ddsrt_sync_rwlock_trylock_conc
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sync" "-t" "rwlock_trylock_conc"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sync_rwlock_trylock_conc" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        6
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.002 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sync_rwlock_trylock_conc" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sync_rwlock_trylock_conc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/951 Testing: CUnit_ddsrt_strtoll_strtoll
+38/951 Test: CUnit_ddsrt_strtoll_strtoll
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "strtoll"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_strtoll" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts     60     60     60      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_strtoll" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_strtoll" time elapsed: 00:00:00
+----------------------------------------------------------
+
+39/951 Testing: CUnit_ddsrt_strtoll_strtoull
+39/951 Test: CUnit_ddsrt_strtoll_strtoull
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "strtoull"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_strtoull" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_strtoull" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_strtoull" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/951 Testing: CUnit_ddsrt_strtoll_atoll
+40/951 Test: CUnit_ddsrt_strtoll_atoll
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "atoll"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_atoll" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_atoll" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_atoll" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/951 Testing: CUnit_ddsrt_strtoll_atoull
+41/951 Test: CUnit_ddsrt_strtoll_atoull
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "atoull"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_atoull" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_atoull" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_atoull" time elapsed: 00:00:00
+----------------------------------------------------------
+
+42/951 Testing: CUnit_ddsrt_strtoll_lltostr
+42/951 Test: CUnit_ddsrt_strtoll_lltostr
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "lltostr"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_lltostr" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      7      7      7      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_lltostr" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_lltostr" time elapsed: 00:00:00
+----------------------------------------------------------
+
+43/951 Testing: CUnit_ddsrt_strtoll_ulltostr
+43/951 Test: CUnit_ddsrt_strtoll_ulltostr
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strtoll" "-t" "ulltostr"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strtoll_ulltostr" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        5
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strtoll_ulltostr" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strtoll_ulltostr" time elapsed: 00:00:00
+----------------------------------------------------------
+
+44/951 Testing: CUnit_ddsrt_thread_thread_id
+44/951 Test: CUnit_ddsrt_thread_thread_id
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread" "-t" "thread_id"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_thread_id" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_thread_id" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_thread_id" time elapsed: 00:00:00
+----------------------------------------------------------
+
+45/951 Testing: CUnit_ddsrt_thread_stacked_join
+45/951 Test: CUnit_ddsrt_thread_stacked_join
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread" "-t" "stacked_join"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_stacked_join" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_stacked_join" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_stacked_join" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/951 Testing: CUnit_ddsrt_thread_attribute
+46/951 Test: CUnit_ddsrt_thread_attribute
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread" "-t" "attribute"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_attribute" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_attribute" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_attribute" time elapsed: 00:00:00
+----------------------------------------------------------
+
+47/951 Testing: CUnit_ddsrt_thread_create_and_join
+47/951 Test: CUnit_ddsrt_thread_create_and_join
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread" "-t" "create_and_join"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_create_and_join" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts     10     10     10      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_create_and_join" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_create_and_join" time elapsed: 00:00:00
+----------------------------------------------------------
+
+48/951 Testing: CUnit_ddsrt_thread_cleanup_push_one
+48/951 Test: CUnit_ddsrt_thread_cleanup_push_one
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_one"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_one" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_one" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_one" time elapsed: 00:00:00
+----------------------------------------------------------
+
+49/951 Testing: CUnit_ddsrt_thread_cleanup_push_two
+49/951 Test: CUnit_ddsrt_thread_cleanup_push_two
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two" time elapsed: 00:00:00
+----------------------------------------------------------
+
+50/951 Testing: CUnit_ddsrt_thread_cleanup_push_two_pop_one_no_exec
+50/951 Test: CUnit_ddsrt_thread_cleanup_push_two_pop_one_no_exec
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two_pop_one_no_exec"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_no_exec" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_no_exec" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_no_exec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+51/951 Testing: CUnit_ddsrt_thread_cleanup_push_two_pop_one_exec
+51/951 Test: CUnit_ddsrt_thread_cleanup_push_two_pop_one_exec
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two_pop_one_exec"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_exec" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_exec" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two_pop_one_exec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+52/951 Testing: CUnit_ddsrt_thread_cleanup_push_two_pop_two_no_exec
+52/951 Test: CUnit_ddsrt_thread_cleanup_push_two_pop_two_no_exec
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two_pop_two_no_exec"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_no_exec" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_no_exec" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_no_exec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+53/951 Testing: CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_one
+53/951 Test: CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_one
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two_pop_two_exec_one"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_one" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_one" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_one" time elapsed: 00:00:00
+----------------------------------------------------------
+
+54/951 Testing: CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_both
+54/951 Test: CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_both
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "push_two_pop_two_exec_both"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_both" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_both" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_push_two_pop_two_exec_both" time elapsed: 00:00:00
+----------------------------------------------------------
+
+55/951 Testing: CUnit_ddsrt_thread_cleanup_no_interference
+55/951 Test: CUnit_ddsrt_thread_cleanup_no_interference
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_thread_cleanup" "-t" "no_interference"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_thread_cleanup_no_interference" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        7
+             asserts     10     10     10      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_thread_cleanup_no_interference" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_thread_cleanup_no_interference" time elapsed: 00:00:00
+----------------------------------------------------------
+
+56/951 Testing: CUnit_ddsrt_strcasecmp_basic
+56/951 Test: CUnit_ddsrt_strcasecmp_basic
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strcasecmp" "-t" "basic"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strcasecmp_basic" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        0
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strcasecmp_basic" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strcasecmp_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+57/951 Testing: CUnit_ddsrt_strncasecmp_basic
+57/951 Test: CUnit_ddsrt_strncasecmp_basic
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strncasecmp" "-t" "basic"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strncasecmp_basic" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts     11     11     11      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strncasecmp_basic" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strncasecmp_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+58/951 Testing: CUnit_ddsrt_strncasecmp_empty
+58/951 Test: CUnit_ddsrt_strncasecmp_empty
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strncasecmp" "-t" "empty"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strncasecmp_empty" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strncasecmp_empty" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strncasecmp_empty" time elapsed: 00:00:00
+----------------------------------------------------------
+
+59/951 Testing: CUnit_ddsrt_strncasecmp_length
+59/951 Test: CUnit_ddsrt_strncasecmp_length
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strncasecmp" "-t" "length"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strncasecmp_length" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      5      5      5      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strncasecmp_length" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strncasecmp_length" time elapsed: 00:00:00
+----------------------------------------------------------
+
+60/951 Testing: CUnit_ddsrt_str_replace_basic
+60/951 Test: CUnit_ddsrt_str_replace_basic
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_str_replace" "-t" "basic"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_str_replace_basic" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        0
+             asserts     21     21     21      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_str_replace_basic" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_str_replace_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+61/951 Testing: CUnit_ddsrt_strndup_exact_length
+61/951 Test: CUnit_ddsrt_strndup_exact_length
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strndup" "-t" "exact_length"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strndup_exact_length" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strndup_exact_length" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strndup_exact_length" time elapsed: 00:00:00
+----------------------------------------------------------
+
+62/951 Testing: CUnit_ddsrt_strndup_too_long
+62/951 Test: CUnit_ddsrt_strndup_too_long
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strndup" "-t" "too_long"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strndup_too_long" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strndup_too_long" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strndup_too_long" time elapsed: 00:00:00
+----------------------------------------------------------
+
+63/951 Testing: CUnit_ddsrt_strndup_too_short
+63/951 Test: CUnit_ddsrt_strndup_too_short
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strndup" "-t" "too_short"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strndup_too_short" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      5      5      5      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strndup_too_short" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strndup_too_short" time elapsed: 00:00:00
+----------------------------------------------------------
+
+64/951 Testing: CUnit_dds_log_only_log_file
+64/951 Test: CUnit_dds_log_only_log_file
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "only_log_file"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_only_log_file" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_only_log_file" end time: Feb 16 20:06 CST
+"CUnit_dds_log_only_log_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+65/951 Testing: CUnit_dds_log_same_file
+65/951 Test: CUnit_dds_log_same_file
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "same_file"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_same_file" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_same_file" end time: Feb 16 20:06 CST
+"CUnit_dds_log_same_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+66/951 Testing: CUnit_dds_log_same_sink_function
+66/951 Test: CUnit_dds_log_same_sink_function
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "same_sink_function"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_same_sink_function" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_same_sink_function" end time: Feb 16 20:06 CST
+"CUnit_dds_log_same_sink_function" time elapsed: 00:00:00
+----------------------------------------------------------
+
+67/951 Testing: CUnit_dds_log_exact_same_sink
+67/951 Test: CUnit_dds_log_exact_same_sink
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "exact_same_sink"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_exact_same_sink" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_exact_same_sink" end time: Feb 16 20:06 CST
+"CUnit_dds_log_exact_same_sink" time elapsed: 00:00:00
+----------------------------------------------------------
+
+68/951 Testing: CUnit_dds_log_no_sink
+68/951 Test: CUnit_dds_log_no_sink
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "no_sink"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_no_sink" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_no_sink" end time: Feb 16 20:06 CST
+"CUnit_dds_log_no_sink" time elapsed: 00:00:00
+----------------------------------------------------------
+
+69/951 Testing: CUnit_dds_log_newline_terminates
+69/951 Test: CUnit_dds_log_newline_terminates
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "newline_terminates"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_newline_terminates" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_newline_terminates" end time: Feb 16 20:06 CST
+"CUnit_dds_log_newline_terminates" time elapsed: 00:00:00
+----------------------------------------------------------
+
+70/951 Testing: CUnit_dds_log_disabled_categories_discarded
+70/951 Test: CUnit_dds_log_disabled_categories_discarded
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "disabled_categories_discarded"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_disabled_categories_discarded" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_disabled_categories_discarded" end time: Feb 16 20:06 CST
+"CUnit_dds_log_disabled_categories_discarded" time elapsed: 00:00:00
+----------------------------------------------------------
+
+71/951 Testing: CUnit_dds_log_synchronous_sink_changes
+71/951 Test: CUnit_dds_log_synchronous_sink_changes
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "synchronous_sink_changes"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_synchronous_sink_changes" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts      3      3      3      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_synchronous_sink_changes" end time: Feb 16 20:06 CST
+"CUnit_dds_log_synchronous_sink_changes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+72/951 Testing: CUnit_dds_log_fatal_aborts
+72/951 Test: CUnit_dds_log_fatal_aborts
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "dds_log" "-t" "fatal_aborts"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_dds_log_fatal_aborts" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        8
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.001 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_dds_log_fatal_aborts" end time: Feb 16 20:06 CST
+"CUnit_dds_log_fatal_aborts" time elapsed: 00:00:00
+----------------------------------------------------------
+
+73/951 Testing: CUnit_ddsrt_hopscotch_concurrent
+73/951 Test: CUnit_ddsrt_hopscotch_concurrent
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_hopscotch" "-t" "concurrent"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_hopscotch_concurrent" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+f281420d.61229811.dd05d947.eff8377e.1b57576e.9edce883.538a4760.d179f37d
+acf65f4a.ffaaee0b.95836bfe.bf95ada6.6fc8bb9d.caa1c1e7.f0eaedcf.c7b63209
+760003d2.b5ee9abb.b6f153c0.71a9a951.eff91478.6b77c5e0.36b270ca.e49c2f04
+b848b9e1.75c1684b.ac968ffa.3a4f3756.8b21b780.5d0b67d9.4ba1032a.38d6a3bc
+args[0] add 981610 rm 981567 lk 1980948 max 100
+args[1] add 969199 rm 969147 lk 1958516 max 100
+args[2] add 990350 rm 990337 lk 2000351 max 100
+args[3] add 984404 rm 984315 lk 1989263 max 100
+nkeys in hash 84
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts     13     13     13      0      n/a
+
+Elapsed time =   52.999 seconds
+<end of output>
+Test time =  15.03 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_hopscotch_concurrent" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_hopscotch_concurrent" time elapsed: 00:00:15
+----------------------------------------------------------
+
+74/951 Testing: CUnit_ddsrt_hopscotch_random
+74/951 Test: CUnit_ddsrt_hopscotch_random
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_hopscotch" "-t" "random"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_hopscotch_random" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+6055575775071 hh random=1 adj=nop
+ec25e9b3.c17725a6.8aa8deda.71ff9593.d0d836ad.6512b7a0.aa78f986.d15e3451
+6055588142872 hh start
+6056707090269 hh done 1000000 1119 ns/cycle
+6056707164231 chh random=1 adj=nop
+08a13761.82aa12d1.29fb4aea.24134162.e0a99600.672b2ce0.501ea129.1f3bc5f5
+6056718989557 chh start
+6059028960140 chh done 1000000 2310 ns/cycle
+6059029025028 ehh random=1 adj=nop
+792ba855.58485cbf.24331cad.869ae11d.7eb5ba38.ac8baa4d.563e4eda.9ca16df9
+6059040890001 ehh start
+6060468837306 ehh done 1000000 1428 ns/cycle
+6060468912564 hh random=0 adj=seq
+028c34ec.f25f474d.8844f0e9.22d78f39.6f0ca4e7.37834d1b.e762bd63.0e1f7be3
+6060470377288 hh start
+6061709036975 hh done 1000000 1239 ns/cycle
+6061709093253 chh random=0 adj=seq
+c9b48da1.c53cc350.52e3c90c.9b23c8d0.2a4a2554.e33627bf.723790d1.e33a2100
+6061710506903 chh start
+6063924639276 chh done 1000000 2214 ns/cycle
+6063924695942 ehh random=0 adj=seq
+f12809fb.18a04a06.326c600f.ee2d9d60.f5024c8b.023bb268.c0958dfb.3297471d
+6063926076166 ehh start
+6065272439710 ehh done 1000000 1346 ns/cycle
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    9.695 seconds
+<end of output>
+Test time =   9.71 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_hopscotch_random" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_hopscotch_random" time elapsed: 00:00:09
+----------------------------------------------------------
+
+75/951 Testing: CUnit_ddsrt_random_mt19937
+75/951 Test: CUnit_ddsrt_random_mt19937
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_random" "-t" "mt19937"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_random_mt19937" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts     10     10     10      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_random_mt19937" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_random_mt19937" time elapsed: 00:00:00
+----------------------------------------------------------
+
+76/951 Testing: CUnit_ddsrt_random_makeseed
+76/951 Test: CUnit_ddsrt_random_makeseed
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_random" "-t" "makeseed"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_random_makeseed" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts     16     16     16      0      n/a
+
+Elapsed time =    0.003 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_random_makeseed" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_random_makeseed" time elapsed: 00:00:00
+----------------------------------------------------------
+
+77/951 Testing: CUnit_ddsrt_random_default_random
+77/951 Test: CUnit_ddsrt_random_default_random
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_random" "-t" "default_random"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_random_default_random" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.004 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_random_default_random" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_random_default_random" time elapsed: 00:00:00
+----------------------------------------------------------
+
+78/951 Testing: CUnit_ddsrt_retcode_unknown
+78/951 Test: CUnit_ddsrt_retcode_unknown
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_retcode" "-t" "unknown"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_retcode_unknown" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts      9      9      9      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_retcode_unknown" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_retcode_unknown" time elapsed: 00:00:00
+----------------------------------------------------------
+
+79/951 Testing: CUnit_ddsrt_retcode_spotchecks
+79/951 Test: CUnit_ddsrt_retcode_spotchecks
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_retcode" "-t" "spotchecks"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_retcode_spotchecks" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts      8      8      8      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_retcode_spotchecks" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_retcode_spotchecks" time elapsed: 00:00:00
+----------------------------------------------------------
+
+80/951 Testing: CUnit_ddsrt_strlcpy_dest_size
+80/951 Test: CUnit_ddsrt_strlcpy_dest_size
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strlcpy" "-t" "dest_size"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strlcpy_dest_size" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        0
+             asserts     28     28     28      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strlcpy_dest_size" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strlcpy_dest_size" time elapsed: 00:00:00
+----------------------------------------------------------
+
+81/951 Testing: CUnit_ddsrt_strlcat_dest_size
+81/951 Test: CUnit_ddsrt_strlcat_dest_size
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_strlcat" "-t" "dest_size"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_strlcat_dest_size" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        0
+             asserts     51     51     51      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_strlcat_dest_size" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_strlcat_dest_size" time elapsed: 00:00:00
+----------------------------------------------------------
+
+82/951 Testing: CUnit_ddsrt_sockaddrfromstr_bad_family
+82/951 Test: CUnit_ddsrt_sockaddrfromstr_bad_family
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrfromstr" "-t" "bad_family"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrfromstr_bad_family" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrfromstr_bad_family" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrfromstr_bad_family" time elapsed: 00:00:00
+----------------------------------------------------------
+
+83/951 Testing: CUnit_ddsrt_sockaddrtostr_bad_sockaddr
+83/951 Test: CUnit_ddsrt_sockaddrtostr_bad_sockaddr
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrtostr" "-t" "bad_sockaddr"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrtostr_bad_sockaddr" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrtostr_bad_sockaddr" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrtostr_bad_sockaddr" time elapsed: 00:00:00
+----------------------------------------------------------
+
+84/951 Testing: CUnit_ddsrt_sockaddrtostr_no_space
+84/951 Test: CUnit_ddsrt_sockaddrtostr_no_space
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrtostr" "-t" "no_space"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrtostr_no_space" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      1      1      1      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrtostr_no_space" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrtostr_no_space" time elapsed: 00:00:00
+----------------------------------------------------------
+
+85/951 Testing: CUnit_ddsrt_sockaddrtostr_ipv4
+85/951 Test: CUnit_ddsrt_sockaddrtostr_ipv4
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrtostr" "-t" "ipv4"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrtostr_ipv4" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrtostr_ipv4" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrtostr_ipv4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+86/951 Testing: CUnit_ddsrt_sockaddrtostr_ipv6
+86/951 Test: CUnit_ddsrt_sockaddrtostr_ipv6
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrtostr" "-t" "ipv6"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrtostr_ipv6" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts      2      2      2      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrtostr_ipv6" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrtostr_ipv6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+87/951 Testing: CUnit_ddsrt_sockets_gethostname
+87/951 Test: CUnit_ddsrt_sockets_gethostname
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockets" "-t" "gethostname"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockets_gethostname" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        0
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockets_gethostname" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockets_gethostname" time elapsed: 00:00:00
+----------------------------------------------------------
+
+88/951 Testing: CUnit_ddsrt_sockaddrfromstr_ipv4
+88/951 Test: CUnit_ddsrt_sockaddrfromstr_ipv4
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrfromstr" "-t" "ipv4"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrfromstr_ipv4" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      5      5      5      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrfromstr_ipv4" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrfromstr_ipv4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+89/951 Testing: CUnit_ddsrt_sockaddrfromstr_ipv6
+89/951 Test: CUnit_ddsrt_sockaddrfromstr_ipv6
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_sockaddrfromstr" "-t" "ipv6"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_sockaddrfromstr_ipv6" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        2
+             asserts      7      7      7      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_sockaddrfromstr_ipv6" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_sockaddrfromstr_ipv6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+90/951 Testing: CUnit_ddsrt_gethostbyname_ipv4
+90/951 Test: CUnit_ddsrt_gethostbyname_ipv4
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_gethostbyname" "-t" "ipv4"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_gethostbyname_ipv4" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_gethostbyname_ipv4" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_gethostbyname_ipv4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+91/951 Testing: CUnit_ddsrt_gethostbyname_ipv6
+91/951 Test: CUnit_ddsrt_gethostbyname_ipv6
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_gethostbyname" "-t" "ipv6"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_gethostbyname_ipv6" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        1
+             asserts      6      6      6      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_gethostbyname_ipv6" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_gethostbyname_ipv6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+92/951 Testing: CUnit_ddsrt_select_duration_to_timeval
+92/951 Test: CUnit_ddsrt_select_duration_to_timeval
+Command: "/home/pi/Documents/cyclonedds/build/bin/cunit_ddsrt" "-s" "ddsrt_select" "-t" "duration_to_timeval"
+Directory: /home/pi/Documents/cyclonedds/build/src/ddsrt/tests
+"CUnit_ddsrt_select_duration_to_timeval" start time: Feb 16 20:06 CST
+Output:
+----------------------------------------------------------
+
+
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites     23      1    n/a      0       22
+               tests     89      1      1      0        3
+             asserts     21     21     21      0      n/a
+
+Elapsed time =    0.000 seconds
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CUnit_ddsrt_select_duration_to_timeval" end time: Feb 16 20:06 CST
+"CUnit_ddsrt_select_duration_to_timeval" time elapsed: 00:00:00
+----------------------------------------------------------
+

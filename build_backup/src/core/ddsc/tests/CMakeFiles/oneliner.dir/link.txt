@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/oneliner.dir/oneliner.c.o CMakeFiles/oneliner.dir/test_oneliner.c.o CMakeFiles/oneliner.dir/test_util.c.o CMakeFiles/oneliner.dir/RoundTrip.c.o CMakeFiles/oneliner.dir/Space.c.o -o ../../../../bin/oneliner  -Wl,-rpath,/home/pi/Documents/cyclonedds/build/lib ../../../../lib/libddsc.so.0.9.0 

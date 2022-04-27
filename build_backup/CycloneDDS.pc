@@ -1,0 +1,9 @@
+prefix=/usr/local
+includedir=${prefix}/include
+libdir=${prefix}/lib/arm-linux-gnueabihf
+
+Name: CycloneDDS
+Description: Eclipse Cyclone DDS library
+Version: 0.9.0
+Libs: -L${libdir} -lddsc
+Cflags: -I${includedir}

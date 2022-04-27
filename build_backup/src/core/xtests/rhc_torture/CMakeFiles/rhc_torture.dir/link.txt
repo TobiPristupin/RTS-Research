@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/rhc_torture.dir/rhc_torture.c.o CMakeFiles/rhc_torture.dir/RhcTypes.c.o -o ../../../../bin/rhc_torture  -Wl,-rpath,/home/pi/Documents/cyclonedds/build/lib ../../../../lib/libddsc.so.0.9.0 
