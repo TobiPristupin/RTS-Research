@@ -17,9 +17,12 @@
 #include <time.h>
 #include <sys/time.h>
 #include <stdio.h>
+#include <execinfo.h>
 
 #include "dds/ddsrt/sync.h"
 #include "dds/ddsrt/time.h"
+
+#define RTS_DEBUG_INFO
 
 
 static long time_ns(){
@@ -28,28 +31,63 @@ static long time_ns(){
     return tp.tv_sec * DDS_NSECS_IN_SEC + tp.tv_nsec;
 }
 
+static void print_backtrace(){
+    int total_addresses = 10;
+    void *addresses[total_addresses];
+    char** backtrace = backtrace_symbols(addresses, total_addresses);
+    for (int i = 0; i < total_addresses; i++){
+        printf("\tbacktrace %s\n", backtrace[i]);
+    }
+//    printf("\n");
+//    for (int i = 0; i < total_addresses; i++){
+//        printf("\tbacktrace %s\n", (char*) addresses[i]);
+//    }
+    free(backtrace);
+}
+
 void ddsrt_mutex_init (ddsrt_mutex_t *mutex)
 {
   assert (mutex != NULL);
+
+#ifdef RTS_DEBUG_INFO
   printf("init_mutex %p %ld\n", mutex, time_ns());
+  print_backtrace();
+#endif
+
+#ifdef RTS_SPINLOCK
+  pthread_spin_init(&mutex->mutex, PTHREAD_PROCESS_SHARED);
+#else
   pthread_mutex_init (&mutex->mutex, NULL);
+#endif
 }
 
 void ddsrt_mutex_destroy (ddsrt_mutex_t *mutex)
 {
   assert (mutex != NULL);
 
-  if (pthread_mutex_destroy (&mutex->mutex) != 0)
-    abort();
+#ifdef RTS_SPINLOCK
+    if (pthread_spin_destroy(&mutex->mutex) != 0) abort();
+#else
+    if (pthread_mutex_destroy (&mutex->mutex) != 0) abort();
+#endif
 }
 
 void ddsrt_mutex_lock (ddsrt_mutex_t *mutex)
 {
   assert (mutex != NULL);
-  printf("lock_mutex %p %ld\n", mutex, time_ns());
-  if (pthread_mutex_lock (&mutex->mutex) != 0)
-    abort();
-  printf("acquire_mutex %p %ld\n", mutex, time_ns());
+#ifdef RTS_DEBUG_INFO
+    printf("lock_mutex %p %ld\n", mutex, time_ns());
+#endif
+
+#ifdef RTS_SPINLOCK
+    if (pthread_spin_lock(&mutex->mutex) != 0) abort();
+#else
+    if (pthread_mutex_lock (&mutex->mutex) != 0) abort();
+#endif
+
+#ifdef RTS_DEBUG_INFO
+    printf("acquire_mutex %p %ld\n", mutex, time_ns());
+#endif
 }
 
 bool
@@ -58,19 +96,35 @@ ddsrt_mutex_trylock (ddsrt_mutex_t *mutex)
   int err;
   assert (mutex != NULL);
 
-  err = pthread_mutex_trylock (&mutex->mutex);
+#ifdef RTS_SPINLOCK
+    err = pthread_spin_trylock(&mutex->mutex);
+    if (err != 0 && err != EBUSY)
+        abort();
+    return (err == 0);
+#else
+    err = pthread_mutex_trylock (&mutex->mutex);
   if (err != 0 && err != EBUSY)
     abort();
   return (err == 0);
+#endif
+
+
 }
 
 void
 ddsrt_mutex_unlock (ddsrt_mutex_t *mutex)
 {
   assert (mutex != NULL);
-  printf("lock_mutex %p %ld\n", mutex, time_ns());
-  if (pthread_mutex_unlock (&mutex->mutex) != 0)
-    abort();
+#ifdef RTS_DEBUG_INFO
+    printf("lock_mutex %p %ld\n", mutex, time_ns());
+#endif
+
+#ifdef RTS_SPINLOCK
+    if (pthread_spin_unlock(&mutex->mutex) != 0) abort();
+#else
+    if (pthread_mutex_unlock (&mutex->mutex) != 0) abort();
+#endif
+
 }
 
 void
@@ -167,7 +221,9 @@ void
 ddsrt_rwlock_init (ddsrt_rwlock_t *rwlock)
 {
   assert(rwlock != NULL);
-  printf("init_rw_lock=%p\n", rwlock);
+#ifdef RTS_DEBUG_INFO
+    printf("init_rw_lock=%p\n", rwlock);
+#endif
 
 #if __SunOS_5_6
   if (pthread_mutex_init(&rwlock->rwlock, NULL) != 0)
