@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/ThroughputPublisher.dir/publisher.c.o CMakeFiles/ThroughputPublisher.dir/Throughput.c.o -o ../../bin/ThroughputPublisher  -Wl,-rpath,/home/pi/Documents/cyclonedds/application_build/lib ../../lib/libddsc.so.0.9.0 

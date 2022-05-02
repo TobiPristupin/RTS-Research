@@ -1,0 +1,24 @@
+export CYCLONEDDS_URI=file:///home/pi/Documents/cyclonedds/examples/perfscript/cdds-simple.xml
+export async=0
+export nwif=eth0
+export logdir=.
+export secdir=./secperf
+#export trace=trace,-content
+cd /home/pi/Documents/cyclonedds/examples/perfscript
+remotebindir=""
+for x in "" /Release /RelWithDebInfo Debug ; do
+    if [ -x bin$x/ddsperf ] ; then
+        remotebindir=bin$x
+        break
+    fi
+done
+if [ -z "$remotebindir" ] ; then
+    echo "ddsperf not found on remote machine" >&2
+    exit 1
+fi
+#/usr/sbin/tcpdump -c 20000 -s 0 -w /tmp/x.pcap -i eth0 -Z erik 'udp[8:4]=0x52545053' & tcpdumppid=$!
+#/usr/sbin/tcpdump -c 20000 -s 0 -w /tmp/x.pcap -i eth0 -Z erik 'udp' & tcpdumppid=$!
+$remotebindir/ddsperf -1l -X -d eth0 -c -T KS pong listener > pong.log & pid=$!
+echo $pid > latency-test-pong-$pid.pid
+wait $pid
+[ -n "$tcpdumppid" ] && kill -INT $tcpdumppid

@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/HelloworldSubscriber.dir/subscriber.c.o CMakeFiles/HelloworldSubscriber.dir/HelloWorldData.c.o -o ../../bin/HelloworldSubscriber  -Wl,-rpath,/home/pi/Documents/cyclonedds/application_build/lib ../../lib/libddsc.so.0.9.0 

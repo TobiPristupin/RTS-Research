@@ -1,0 +1,20 @@
+<CycloneDDS>
+  <Domain id="17">
+    <General>
+      <NetworkInterfaceAddress>${nwif}</NetworkInterfaceAddress>
+      <EnableMulticastLoopback>true</EnableMulticastLoopback>
+      <MaxMessageSize>65500B</MaxMessageSize>
+    </General>
+    <Internal>
+      <SynchronousDeliveryPriorityThreshold>${async:-0}</SynchronousDeliveryPriorityThreshold>
+      <LeaseDuration>2s</LeaseDuration>
+      <MinimumSocketReceiveBufferSize>6MB</MinimumSocketReceiveBufferSize>
+      
+    </Internal>
+    <Tracing>
+      <Verbosity>fine</Verbosity>
+      <Category>${trace}</Category>
+      <OutputFile>${logdir}/cdds.log</OutputFile>
+    </Tracing>
+  </Domain>
+</CycloneDDS>

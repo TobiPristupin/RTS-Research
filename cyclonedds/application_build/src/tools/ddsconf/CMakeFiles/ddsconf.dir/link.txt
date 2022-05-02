@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/ddsconf.dir/ddsconf.c.o CMakeFiles/ddsconf.dir/rnc.c.o CMakeFiles/ddsconf.dir/md.c.o CMakeFiles/ddsconf.dir/xsd.c.o CMakeFiles/ddsconf.dir/defconfig.c.o CMakeFiles/ddsconf.dir/__/__/core/ddsi/src/ddsi_config.c.o -o ../../../bin/ddsconf  -Wl,-rpath,:::::::::::::: ../../../lib/libddsrt-internal.a -lpthread -ldl 

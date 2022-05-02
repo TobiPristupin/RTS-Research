@@ -1,0 +1,124 @@
+Determining if the strlcpy exist failed with the following output:
+Change Dir: /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1fc6b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1fc6b.dir/build.make CMakeFiles/cmTC_1fc6b.dir/build
+gmake[1]: Entering directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1fc6b.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_1fc6b.dir/CheckSymbolExists.c.o -c /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strlcpy’ undeclared (first use in this function); did you mean ‘strncpy’?
+    8 |   return ((int*)(&strlcpy))[argc];
+      |                   ^~~~~~~
+      |                   strncpy
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_1fc6b.dir/build.make:85: CMakeFiles/cmTC_1fc6b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_1fc6b/fast] Error 2
+
+
+File /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcpy
+  return ((int*)(&strlcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_792b1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_792b1.dir/build.make CMakeFiles/cmTC_792b1.dir/build
+gmake[1]: Entering directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_792b1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_792b1.dir/CheckSymbolExists.c.o -c /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+    8 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_792b1.dir/build.make:85: CMakeFiles/cmTC_792b1.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_792b1/fast] Error 2
+
+
+File /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d0ad3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0ad3.dir/build.make CMakeFiles/cmTC_d0ad3.dir/build
+gmake[1]: Entering directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0ad3.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -std=gnu99 -o CMakeFiles/cmTC_d0ad3.dir/src.c.o -c /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d0ad3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0ad3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_d0ad3.dir/src.c.o -o cmTC_d0ad3 
+/usr/bin/ld: CMakeFiles/cmTC_d0ad3.dir/src.c.o: in function `main':
+src.c:(.text+0x40): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4c): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x58): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x68): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d0ad3.dir/build.make:106: cmTC_d0ad3] Error 1
+gmake[1]: Leaving directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_d0ad3/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f4c27/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f4c27.dir/build.make CMakeFiles/cmTC_f4c27.dir/build
+gmake[1]: Entering directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4c27.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu99 -o CMakeFiles/cmTC_f4c27.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f4c27
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4c27.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_f4c27.dir/CheckFunctionExists.c.o -o cmTC_f4c27  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_f4c27.dir/build.make:106: cmTC_f4c27] Error 1
+gmake[1]: Leaving directory '/home/pi/Documents/cyclonedds/application_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_f4c27/fast] Error 2
+
+
+
