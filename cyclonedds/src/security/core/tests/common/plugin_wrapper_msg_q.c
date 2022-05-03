@@ -71,6 +71,7 @@ void init_message_queue(struct message_queue *queue)
   queue->head = NULL;
   queue->tail = NULL;
   ddsrt_mutex_init(&queue->lock);
+printf("mutex_name %p &queue->lock\n", &queue->lock);
   ddsrt_cond_init(&queue->cond);
 }
 

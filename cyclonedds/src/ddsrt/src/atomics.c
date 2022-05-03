@@ -177,6 +177,7 @@ void ddsrt_atomics_init (void)
 {
   for (int i = 0; i < N_MUTEXES; i++)
     ddsrt_mutex_init (&mutexes[i]);
+printf("mutex_name %p init (&mutexes[i]\n", init (&mutexes[i]);
 }
 
 void ddsrt_atomics_fini (void)

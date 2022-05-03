@@ -1911,6 +1911,7 @@ void test_oneliner_init (struct oneliner_ctx *ctx)
   };
 
   ddsrt_mutex_init (&ctx->g_mutex);
+printf("mutex_name %p &ctx->g_mutex\n", &ctx->g_mutex);
   ddsrt_cond_init (&ctx->g_cond);
 
   create_unique_topic_name ("ddsc_listener_test", ctx->topicname, sizeof (ctx->topicname));

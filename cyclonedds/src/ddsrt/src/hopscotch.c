@@ -11,6 +11,7 @@
  */
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "dds/ddsrt/attributes.h"
 #include "dds/ddsrt/atomics.h"
@@ -339,6 +340,7 @@ static int ddsrt_chh_init (struct ddsrt_chh *rt, uint32_t init_size, ddsrt_hh_ha
         ddsrt_atomic_stvoidp (&b->data, NULL);
     }
     ddsrt_mutex_init (&rt->change_lock);
+    printf("mutex_name %p &rt->change_lock\n", &rt->change_lock);
     return 0;
 }
 

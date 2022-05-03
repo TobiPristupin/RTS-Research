@@ -67,6 +67,7 @@ int compare_lease_tdur (const void *va, const void *vb)
 void lease_management_init (struct ddsi_domaingv *gv)
 {
   ddsrt_mutex_init (&gv->leaseheap_lock);
+    printf("mutex_name %p &gv->leaseheap_lock\n", &gv->leaseheap_lock);
   ddsrt_fibheap_init (&lease_fhdef, &gv->leaseheap);
 }
 

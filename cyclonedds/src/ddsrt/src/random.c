@@ -56,6 +56,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "dds/ddsrt/random.h"
 #include "dds/ddsrt/sync.h"
@@ -199,6 +200,7 @@ void ddsrt_random_init (void)
   }
   ddsrt_prng_init (&default_prng, &seed);
   ddsrt_mutex_init (&default_prng_lock);
+  printf("mutex_name %p &default_prng_lock\n", &default_prng_lock);
 }
 
 void ddsrt_random_fini (void)

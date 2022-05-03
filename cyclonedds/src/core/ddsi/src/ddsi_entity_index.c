@@ -239,6 +239,7 @@ struct entity_index *entity_index_new (struct ddsi_domaingv *gv)
     return NULL;
   } else {
     ddsrt_mutex_init (&entidx->all_entities_lock);
+    printf("mutex_name %p &entidx->all_entities_lock\n", &entidx->all_entities_lock);
     ddsrt_avl_init (&all_entities_treedef, &entidx->all_entities);
     return entidx;
   }

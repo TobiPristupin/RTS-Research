@@ -136,6 +136,7 @@ os_sockWaitset os_sockWaitsetNew (void)
   if (fcntl (ws->pipe[1], F_SETFD, fcntl (ws->pipe[1], F_GETFD) | FD_CLOEXEC) == -1)
     goto fail_fcntl;
   ddsrt_mutex_init (&ws->lock);
+printf("mutex_name %p it (&ws->lock\n", it (&ws->lock);
   return ws;
 
 fail_fcntl:
@@ -308,6 +309,7 @@ os_sockWaitset os_sockWaitsetNew (void)
   ws->ctx.n = 1;
   ws->ctx.index = -1;
   ddsrt_mutex_init (&ws->mutex);
+printf("mutex_name %p it (&ws->mutex\n", it (&ws->mutex);
   return ws;
 }
 
@@ -685,6 +687,7 @@ os_sockWaitset os_sockWaitsetNew (void)
 #endif
 
   ddsrt_mutex_init (&ws->mutex);
+    printf("mutex_name %p &ws->mutex\n", &ws->mutex);
 
   return ws;
 }

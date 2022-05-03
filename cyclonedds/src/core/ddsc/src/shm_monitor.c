@@ -34,6 +34,7 @@ static void shm_subscriber_callback(iox_sub_t subscriber);
 void shm_monitor_init(shm_monitor_t* monitor) 
 {
     ddsrt_mutex_init(&monitor->m_lock);
+printf("mutex_name %p &monitor->m_lock\n", &monitor->m_lock);
 
     monitor->m_listener = iox_listener_init(&monitor->m_listener_storage);
     monitor->m_wakeup_trigger = iox_user_trigger_init(&monitor->m_wakeup_trigger_storage.storage);

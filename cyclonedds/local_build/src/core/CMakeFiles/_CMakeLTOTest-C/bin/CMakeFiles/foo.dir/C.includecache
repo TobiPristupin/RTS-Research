@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/src/core/CMakeFiles/_CMakeLTOTest-C/src/foo.c
+

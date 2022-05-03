@@ -99,6 +99,7 @@ void thread_states_init (unsigned maxthreads)
   if (thread_states.ts == NULL)
   {
     ddsrt_mutex_init (&thread_states.lock);
+    printf("mutex_name %p &thread_states.lock\n", &thread_states.lock);
     thread_states.nthreads = maxthreads;
     thread_states.ts = ddsrt_malloc_aligned_cacheline (maxthreads * sizeof (*thread_states.ts));
     memset (thread_states.ts, 0, maxthreads * sizeof (*thread_states.ts));

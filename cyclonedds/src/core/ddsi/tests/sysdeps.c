@@ -189,6 +189,7 @@ CU_Test (ddsi_sysdeps, log_stacktrace_other, .init = setup, .fini = teardown)
   arg.incallback = 0;
   arg.stop = 0;
   ddsrt_mutex_init (&arg.lock);
+printf("mutex_name %p &arg.lock\n", &arg.lock);
   ddsrt_cond_init (&arg.cond);
 
   ddsrt_threadattr_t tattr;

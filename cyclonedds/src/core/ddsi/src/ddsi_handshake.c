@@ -1005,6 +1005,7 @@ static struct ddsi_handshake * ddsi_handshake_create(struct participant *pp, str
   memset(handshake, 0, sizeof(struct ddsi_handshake));
 
   ddsrt_mutex_init(&handshake->lock);
+printf("mutex_name %p &handshake->lock\n", &handshake->lock);
   handshake->auth = q_omg_participant_get_authentication(pp);
   ddsrt_atomic_st32(&handshake->refc, 1);
   ddsrt_atomic_st32(&handshake->deleting, 0);
@@ -1181,6 +1182,7 @@ static struct ddsi_hsadmin * ddsi_handshake_admin_create(void)
 
   admin = ddsrt_malloc(sizeof(*admin));
   ddsrt_mutex_init(&admin->lock);
+printf("mutex_name %p &admin->lock\n", &admin->lock);
   ddsrt_avl_init(&handshake_treedef, &admin->handshakes);
   admin->fsm_control = NULL;
 

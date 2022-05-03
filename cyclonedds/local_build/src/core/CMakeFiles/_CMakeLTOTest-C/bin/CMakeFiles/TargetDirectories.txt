@@ -1,0 +1,4 @@
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/src/core/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/rebuild_cache.dir
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/src/core/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/edit_cache.dir
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/src/core/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/src/core/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir

@@ -100,6 +100,7 @@ struct AccessControlTable *access_control_table_new(void)
   table = ddsrt_malloc(sizeof(*table));
   table->htab = ddsrt_hh_new(32, access_control_object_hash, access_control_object_equal);
   ddsrt_mutex_init(&table->lock);
+printf("mutex_name %p &table->lock\n", &table->lock);
   return table;
 }
 

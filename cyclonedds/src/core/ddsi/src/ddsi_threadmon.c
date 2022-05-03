@@ -213,6 +213,7 @@ struct ddsi_threadmon *ddsi_threadmon_new (int64_t liveliness_monitoring_interva
   /* service lease update thread initializes av_ary */
 
   ddsrt_mutex_init (&sl->lock);
+  printf("mutex_name %p &sl->lock\n", &sl->lock);
   ddsrt_cond_init (&sl->cond);
   return sl;
 

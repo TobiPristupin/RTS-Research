@@ -522,6 +522,7 @@ struct xeventq * xeventq_new (struct ddsi_domaingv *gv, size_t max_queued_rexmit
   evq->queued_rexmit_msgs = 0;
   evq->gv = gv;
   ddsrt_mutex_init (&evq->lock);
+    printf("mutex_name %p &evq->lock\n", &evq->lock);
   ddsrt_cond_init (&evq->cond);
 
   evq->cum_rexmit_bytes = 0;

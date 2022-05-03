@@ -566,6 +566,7 @@ struct dds_rhc *dds_rhc_default_new_xchecks (dds_reader *reader, struct ddsi_dom
 
   lwregs_init (&rhc->registrations);
   ddsrt_mutex_init (&rhc->lock);
+    printf("mutex_name %p &rhc->lock\n", &rhc->lock);
   rhc->instances = ddsrt_hh_new (1, instance_iid_hash, instance_iid_eq);
   ddsrt_circlist_init (&rhc->nonempty_instances);
   rhc->type = type;

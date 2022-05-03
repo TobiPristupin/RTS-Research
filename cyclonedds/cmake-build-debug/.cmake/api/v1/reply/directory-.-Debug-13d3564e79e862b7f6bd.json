@@ -1,0 +1,108 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 296,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 303,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 316,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "dev",
+			"destination" : "lib/cmake/CycloneDDS",
+			"paths" : 
+			[
+				"cmake-build-debug/CycloneDDSConfig.cmake",
+				"cmake-build-debug/CycloneDDSConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "dev",
+			"destination" : "lib/cmake/CycloneDDS",
+			"exportName" : "CycloneDDS",
+			"exportTargets" : 
+			[
+				{
+					"id" : "ddsconf::@252a90c4cd6d362825c5",
+					"index" : 4
+				},
+				{
+					"id" : "idlc::@625b227910ee9b8034af",
+					"index" : 9
+				},
+				{
+					"id" : "idl::@9758f91cb286db83927d",
+					"index" : 8
+				},
+				{
+					"id" : "dds_security_ac::@6080d0fdc0362ac2969e",
+					"index" : 0
+				},
+				{
+					"id" : "dds_security_auth::@44f4a207a407bdfb6296",
+					"index" : 1
+				},
+				{
+					"id" : "dds_security_crypto::@65327fdebd6645eddc6f",
+					"index" : 2
+				},
+				{
+					"id" : "ddsc::@0618756b1ff51bca1a0e",
+					"index" : 3
+				}
+			],
+			"paths" : 
+			[
+				"CMakeFiles/Export/lib/cmake/CycloneDDS/CycloneDDSTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "dev",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"cmake-build-debug/CycloneDDS.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

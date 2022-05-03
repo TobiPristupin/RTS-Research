@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/InitSampleDelivSub.dir/subscriber.c.o CMakeFiles/InitSampleDelivSub.dir/InitSampleDelivData.c.o -o ../../../../bin/InitSampleDelivSub  -Wl,-rpath,/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/lib ../../../../lib/libddsc.so.0.9.0 

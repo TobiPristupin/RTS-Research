@@ -1,0 +1,64 @@
+Determining if the strlcpy exist failed with the following output:
+Change Dir: /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b2c24/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b2c24.dir/build.make CMakeFiles/cmTC_b2c24.dir/build
+gmake[1]: Entering directory '/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2c24.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_b2c24.dir/CheckSymbolExists.c.o -c /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strlcpy’ undeclared (first use in this function); did you mean ‘strncpy’?
+    8 |   return ((int*)(&strlcpy))[argc];
+      |                   ^~~~~~~
+      |                   strncpy
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_b2c24.dir/build.make:85: CMakeFiles/cmTC_b2c24.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_b2c24/fast] Error 2
+
+
+File /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcpy
+  return ((int*)(&strlcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e3219/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e3219.dir/build.make CMakeFiles/cmTC_e3219.dir/build
+gmake[1]: Entering directory '/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3219.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_e3219.dir/CheckSymbolExists.c.o -c /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+    8 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_e3219.dir/build.make:85: CMakeFiles/cmTC_e3219.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_e3219/fast] Error 2
+
+
+File /home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

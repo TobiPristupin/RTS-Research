@@ -2264,6 +2264,7 @@ int32_t init_authentication(const char *argument, void **context, struct ddsi_do
   authentication->base.return_identity_handle = &return_identity_handle;
   authentication->base.return_sharedsecret_handle = &return_sharedsecret_handle;
   ddsrt_mutex_init(&authentication->lock);
+printf("mutex_name %p &authentication->lock\n", &authentication->lock);
   authentication->objectHash = ddsrt_hh_new(32, security_object_hash, security_object_equal);
   authentication->remoteGuidHash = ddsrt_hh_new(32, remote_guid_hash, remote_guid_equal);
   memset(&authentication->trustedCAList, 0, sizeof(X509Seq));

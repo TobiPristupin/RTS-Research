@@ -82,6 +82,7 @@ struct dds_security_access_control_impl {
 static void init_returns_log(struct dds_security_access_control_impl *impl)
 {
   ddsrt_mutex_init (&impl->returns_log_lock);
+printf("mutex_name %p &impl->returns_log_lock\n", &impl->returns_log_lock);
   ddsrt_circlist_init (&impl->returns_log);
   impl->invalid_return = false;
 }

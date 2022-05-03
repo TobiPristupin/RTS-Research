@@ -1510,29 +1510,35 @@ int rtps_init (struct ddsi_domaingv *gv)
 #endif
 
   ddsrt_mutex_init (&gv->sertypes_lock);
+  printf("mutex_name %p &gv->sertypes_lock\n", &gv->sertypes_lock);
   gv->sertypes = ddsrt_hh_new (1, ddsi_sertype_hash_wrap, ddsi_sertype_equal_wrap);
 
 #ifdef DDS_HAS_TYPE_DISCOVERY
   ddsrt_mutex_init (&gv->typelib_lock);
+  printf("mutex_name %p &gv->typelib_lock\n", &gv->typelib_lock);
   ddsrt_cond_init (&gv->typelib_resolved_cond);
   ddsrt_avl_init (&ddsi_typelib_treedef, &gv->typelib);
 #endif
   ddsrt_mutex_init (&gv->new_topic_lock);
+  printf("mutex_name %p &gv->new_topic_lock\n", &gv->new_topic_lock);
   ddsrt_cond_init (&gv->new_topic_cond);
   gv->new_topic_version = 0;
 #ifdef DDS_HAS_TOPIC_DISCOVERY
   ddsrt_mutex_init (&gv->topic_defs_lock);
+printf("mutex_name %p it (&gv->topic_defs_lock\n", it (&gv->topic_defs_lock);
   gv->topic_defs = ddsrt_hh_new (1, topic_definition_hash_wrap, topic_definition_equal_wrap);
 #endif
   make_special_types (gv);
 
   ddsrt_mutex_init (&gv->participant_set_lock);
+  printf("mutex_name %p &gv->participant_set_lock\n", &gv->participant_set_lock);
   ddsrt_cond_init (&gv->participant_set_cond);
   lease_management_init (gv);
   gv->deleted_participants = deleted_participants_admin_new (&gv->logconfig, gv->config.prune_deleted_ppant.delay);
   gv->entity_index = entity_index_new (gv);
 
   ddsrt_mutex_init (&gv->privileged_pp_lock);
+  printf("mutex_name %p &gv->privileged_pp_lock\n", &gv->privileged_pp_lock);
   gv->privileged_pp = NULL;
 
   /* Base participant GUID.  IID initialisation should be from a really good random
@@ -1571,7 +1577,9 @@ int rtps_init (struct ddsi_domaingv *gv)
   }
 
   ddsrt_mutex_init (&gv->lock);
+    printf("mutex_name %p &gv->lock\n", &gv->lock);
   ddsrt_mutex_init (&gv->spdp_lock);
+printf("mutex_name %p &gv->spdp_lock\n", &gv->spdp_lock);
   gv->spdp_defrag = nn_defrag_new (&gv->logconfig, NN_DEFRAG_DROP_OLDEST, gv->config.defrag_unreliable_maxsamples);
   gv->spdp_reorder = nn_reorder_new (&gv->logconfig, NN_REORDER_MODE_ALWAYS_DELIVER, gv->config.primary_reorder_maxsamples, false);
 
@@ -1643,6 +1651,7 @@ int rtps_init (struct ddsi_domaingv *gv)
     if (gv->pcap_fp)
     {
       ddsrt_mutex_init (&gv->pcap_lock);
+        printf("mutex_name %p &gv->pcap_lock\n", &gv->pcap_lock);
     }
   }
   else
@@ -1868,6 +1877,7 @@ int rtps_init (struct ddsi_domaingv *gv)
   // sendq thread is started if a DW is created with non-zero latency
   gv->sendq_running = false;
   ddsrt_mutex_init (&gv->sendq_running_lock);
+printf("mutex_name %p &gv->sendq_running_lock\n", &gv->sendq_running_lock);
 
   gv->builtins_dqueue = nn_dqueue_new ("builtins", gv, gv->config.delivery_queue_maxsamples, builtins_dqueue_handler, NULL);
 #ifdef DDS_HAS_NETWORK_CHANNELS
@@ -2096,6 +2106,7 @@ void rtps_stop (struct ddsi_domaingv *gv)
   {
     struct dq_builtins_ready_arg arg;
     ddsrt_mutex_init (&arg.lock);
+    printf("mutex_name %p &arg.lock\n", &arg.lock);
     ddsrt_cond_init (&arg.cond);
     arg.ready = 0;
     nn_dqueue_enqueue_callback(gv->builtins_dqueue, builtins_dqueue_ready_cb, &arg);
@@ -2345,6 +2356,7 @@ void rtps_fini (struct ddsi_domaingv *gv)
     /* The compiler doesn't realize that n->next is always initialized. */
     DDSRT_WARNING_MSVC_OFF(6001);
     gv->recvips = n->next;
+    DDSRT_WARNING_MSVC_ON(6001);
     DDSRT_WARNING_MSVC_ON(6001);
     ddsrt_free (n);
   }

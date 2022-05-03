@@ -392,6 +392,7 @@ struct debug_monitor *new_debug_monitor (struct ddsi_domaingv *gv, int32_t port)
   }
 
   ddsrt_mutex_init (&dm->lock);
+  printf("mutex_name %p &dm->lock\n", &dm->lock);
   ddsrt_cond_init (&dm->cond);
   if (ddsi_listener_listen (dm->servsock) < 0)
     goto err_listen;

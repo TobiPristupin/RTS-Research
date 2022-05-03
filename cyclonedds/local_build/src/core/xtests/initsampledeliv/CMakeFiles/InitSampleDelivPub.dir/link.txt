@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/InitSampleDelivPub.dir/publisher.c.o CMakeFiles/InitSampleDelivPub.dir/InitSampleDelivData.c.o -o ../../../../bin/InitSampleDelivPub  -Wl,-rpath,/home/pristu/Documents/School/Gill/rts-research/cyclonedds/local_build/lib ../../../../lib/libddsc.so.0.9.0 

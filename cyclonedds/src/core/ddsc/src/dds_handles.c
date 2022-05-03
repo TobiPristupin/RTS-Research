@@ -88,6 +88,7 @@ dds_return_t dds_handle_server_init (void)
     handles.ht = ddsrt_hh_new (128, handle_hash, handle_equal);
     handles.count = 0;
     ddsrt_mutex_init (&handles.lock);
+    printf("mutex_name %p handles.lock\n", &handles.lock);
     ddsrt_cond_init (&handles.cond);
   }
   return DDS_RETCODE_OK;

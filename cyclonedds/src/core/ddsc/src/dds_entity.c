@@ -240,7 +240,9 @@ dds_entity_t dds_entity_init (dds_entity *e, dds_entity *parent, dds_entity_kind
     ddsrt_atomic_st32 (&e->m_status.m_trigger, 0);
 
   ddsrt_mutex_init (&e->m_mutex);
+    printf("mutex_name %p &e->m_mutex\n", &e->m_mutex);
   ddsrt_mutex_init (&e->m_observers_lock);
+    printf("mutex_name %p &e->m_observers_lock\n", &e->m_observers_lock);
   ddsrt_cond_init (&e->m_cond);
   ddsrt_cond_init (&e->m_observers_cond);
 

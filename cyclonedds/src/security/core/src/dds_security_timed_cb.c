@@ -128,6 +128,7 @@ struct dds_security_timed_dispatcher *dds_security_timed_dispatcher_new (struct 
 {
   struct dds_security_timed_dispatcher *d = ddsrt_malloc (sizeof (*d));
   ddsrt_mutex_init (&d->lock);
+    printf("mutex_name %p &d->lock\n", &d->lock);
   ddsrt_avl_init (&timed_event_treedef, &d->events);
   ddsrt_fibheap_init (&timed_cb_queue_fhdef, &d->timers);
   d->evq = evq;

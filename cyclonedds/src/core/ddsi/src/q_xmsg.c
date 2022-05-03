@@ -1381,6 +1381,7 @@ void nn_xpack_sendq_init (struct ddsi_domaingv *gv)
   gv->sendq_tail = NULL;
   gv->sendq_length = 0;
   ddsrt_mutex_init (&gv->sendq_lock);
+  printf("mutex_name %p it (&gv->sendq_lock\n", &gv->sendq_lock);
   ddsrt_cond_init (&gv->sendq_cond);
 }
 

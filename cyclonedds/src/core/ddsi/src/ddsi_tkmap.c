@@ -92,6 +92,7 @@ struct ddsi_tkmap *ddsi_tkmap_new (struct ddsi_domaingv *gv)
   tkmap->m_hh = ddsrt_chh_new (1, dds_tk_hash_void, dds_tk_equals_void, gc_buckets, tkmap);
   tkmap->gv = gv;
   ddsrt_mutex_init (&tkmap->m_lock);
+  printf("mutex_name %p &tkmap->m_lock\n", &tkmap->m_lock);
   ddsrt_cond_init (&tkmap->m_cond);
   return tkmap;
 }

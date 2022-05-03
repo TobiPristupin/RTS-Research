@@ -150,6 +150,7 @@ struct CryptoObjectTable * crypto_object_table_new(CryptoObjectHashFunction hash
   table = ddsrt_malloc(sizeof(*table));
   table->htab = ddsrt_hh_new(32, hashfnc, equalfnc);
   ddsrt_mutex_init(&table->lock);
+printf("mutex_name %p &table->lock\n", &table->lock);
   table->findfnc = findfnc ? findfnc : default_crypto_table_find;
   return table;
 }
@@ -356,6 +357,7 @@ static void local_participant_crypto__free(CryptoObject *obj)
     ddsrt_avl_cfree(&loc_pp_keymat_treedef, &participant_crypto->key_material_table, 0);
     crypto_object_deinit ((CryptoObject *)participant_crypto);
     ddsrt_mutex_init(&participant_crypto->lock);
+printf("mutex_name %p &participant_crypto->lock\n", &participant_crypto->lock);
     ddsrt_free (participant_crypto);
   }
 }
@@ -368,6 +370,7 @@ local_participant_crypto * crypto_local_participant_crypto__new(DDS_Security_Ide
   participant_crypto->identity_handle = participant_identity;
   crypto_object_init ((CryptoObject *)participant_crypto, CRYPTO_OBJECT_KIND_LOCAL_CRYPTO, local_participant_crypto__free);
   ddsrt_mutex_init(&participant_crypto->lock);
+printf("mutex_name %p &participant_crypto->lock\n", &participant_crypto->lock);
   ddsrt_avl_cinit(&loc_pp_keymat_treedef, &participant_crypto->key_material_table);
 
   return participant_crypto;
@@ -398,6 +401,7 @@ remote_participant_crypto * crypto_remote_participant_crypto__new(DDS_Security_I
   participant_crypto->identity_handle = participant_identity;
   ddsrt_avl_cinit(&rmt_pp_keymat_treedef, &participant_crypto->key_material_table);
   ddsrt_mutex_init(&participant_crypto->lock);
+printf("mutex_name %p &participant_crypto->lock\n", &participant_crypto->lock);
   ddsrt_avl_init(&endpoint_relation_treedef, &participant_crypto->relation_index);
   ddsrt_avl_init(&specific_key_treedef, &participant_crypto->specific_key_index);
 

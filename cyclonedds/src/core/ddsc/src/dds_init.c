@@ -110,6 +110,7 @@ dds_return_t dds_init (void)
   }
 
   ddsrt_mutex_init (&dds_global.m_mutex);
+    printf("mutex_name %p &dds_global.m_mutex\n",  &dds_global.m_mutex);
   ddsrt_cond_init (&dds_global.m_cond);
   ddsi_iid_init ();
   thread_states_init (128);

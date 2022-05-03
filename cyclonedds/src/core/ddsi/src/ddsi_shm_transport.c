@@ -17,6 +17,7 @@ void iox_sub_storage_extension_init(iox_sub_storage_extension_t *storage)
   storage->monitor = NULL;
   storage->parent_reader = NULL;
   ddsrt_mutex_init(&storage->mutex);
+printf("mutex_name %p &storage->mutex\n", &storage->mutex);
 }
 
 void iox_sub_storage_extension_fini(iox_sub_storage_extension_t* storage)

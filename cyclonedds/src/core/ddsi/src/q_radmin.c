@@ -356,6 +356,7 @@ struct nn_rbufpool *nn_rbufpool_new (const struct ddsrt_log_cfg *logcfg, uint32_
 #endif
 
   ddsrt_mutex_init (&rbp->lock);
+    printf("mutex_name %p &rbp->lock\n", &rbp->lock);
 
   rbp->rbuf_size = rbuf_size;
   rbp->max_rmsg_size = max_rmsg_size;
@@ -2619,6 +2620,7 @@ struct nn_dqueue *nn_dqueue_new (const char *name, const struct ddsi_domaingv *g
   q->ts = NULL;
 
   ddsrt_mutex_init (&q->lock);
+  printf("mutex_name %p &q->lock\n", &q->lock);
   ddsrt_cond_init (&q->cond);
 
   return q;

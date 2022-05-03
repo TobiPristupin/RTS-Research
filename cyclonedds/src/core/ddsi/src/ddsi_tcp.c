@@ -945,6 +945,7 @@ static ddsi_tcp_conn_t ddsi_tcp_new_conn (struct ddsi_tran_factory_tcp *fact, co
   memset (conn, 0, sizeof (*conn));
   ddsi_tcp_base_init (fact, interf, &conn->m_base);
   ddsrt_mutex_init (&conn->m_mutex);
+  printf("mutex_name %p &conn->m_mutex\n", &conn->m_mutex);
   conn->m_sock = DDSRT_INVALID_SOCKET;
   (void)memcpy(&conn->m_peer_addr, peer, (size_t)ddsrt_sockaddr_get_size(peer));
   conn->m_peer_port = ddsrt_sockaddr_get_port (peer);
@@ -1265,6 +1266,7 @@ int ddsi_tcp_init (struct ddsi_domaingv *gv)
 
   ddsrt_avl_init (&ddsi_tcp_treedef, &fact->ddsi_tcp_cache_g);
   ddsrt_mutex_init (&fact->ddsi_tcp_cache_lock_g);
+  printf("mutex_name %p &fact->ddsi_tcp_cache_lock_g\n", &fact->ddsi_tcp_cache_lock_g);
 
   GVLOG (DDS_LC_CONFIG, "tcp initialized\n");
   return 0;

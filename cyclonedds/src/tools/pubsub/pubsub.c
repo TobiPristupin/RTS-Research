@@ -2202,6 +2202,7 @@ int main(int argc, char *argv[]) {
     memset (&sigtid, 0, sizeof(sigtid));
     memset (&inptid, 0, sizeof(inptid));
     ddsrt_mutex_init(&output_mutex);
+printf("mutex_name %p &output_mutex\n", &output_mutex);
 
     if (ddsrt_strcasecmp(execname(argc, argv), "sub") == 0)
         want_writer = 0;

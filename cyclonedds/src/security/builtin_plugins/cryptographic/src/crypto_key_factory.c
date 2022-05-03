@@ -986,6 +986,7 @@ dds_security_crypto_key_factory__alloc(
   dds_security_crypto_key_factory_impl *instance = ddsrt_malloc(sizeof(*instance));
 
   ddsrt_mutex_init(&instance->lock);
+printf("mutex_name %p &instance->lock\n", &instance->lock);
 
   instance->crypto = crypto;
   instance->base.register_local_participant = &register_local_participant;

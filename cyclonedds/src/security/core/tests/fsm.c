@@ -72,6 +72,7 @@ static void fsm_control_init(void)
   g_participant = dds_create_participant (DDS_DOMAIN_DEFAULT, NULL, NULL);
   CU_ASSERT_FATAL (g_participant > 0);
   ddsrt_mutex_init (&g_lock);
+    printf("mutex_name %p &g_lock\n", &g_lock);
   ddsrt_cond_init (&g_cond);
 
   g_fsm_control = dds_security_fsm_control_create (get_entity_gv (g_participant));

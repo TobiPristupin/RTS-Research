@@ -198,6 +198,7 @@ struct gcreq_queue *gcreq_queue_new (struct ddsi_domaingv *gv)
   q->gv = gv;
   q->ts = NULL;
   ddsrt_mutex_init (&q->lock);
+  printf("mutex_name %p &q->lock\n", &q->lock);
   ddsrt_cond_init (&q->cond);
   return q;
 }

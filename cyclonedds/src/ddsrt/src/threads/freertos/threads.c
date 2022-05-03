@@ -124,6 +124,7 @@ thread_registry_init(void)
   /* One time initialization guaranteed by ddsrt_once. */
   (void)memset(&thread_registry, 0, sizeof(thread_registry));
   ddsrt_mutex_init(&thread_registry.mutex);
+printf("mutex_name %p &thread_registry.mutex\n", &thread_registry.mutex);
 }
 
 static thread_context_t *

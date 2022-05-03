@@ -172,6 +172,7 @@ struct addrset *new_addrset (void)
   struct addrset *as = ddsrt_malloc (sizeof (*as));
   ddsrt_atomic_st32 (&as->refc, 1);
   ddsrt_mutex_init (&as->lock);
+  printf("mutex_name %p as->lock\n", &as->lock);
   ddsrt_avl_cinit (&addrset_treedef, &as->ucaddrs);
   ddsrt_avl_cinit (&addrset_treedef, &as->mcaddrs);
   return as;

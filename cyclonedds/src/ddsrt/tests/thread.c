@@ -221,7 +221,9 @@ CU_Test(ddsrt_thread, stacked_join)
   uint32_t res = 0;
 
   ddsrt_mutex_init(&locks[0]);
+printf("mutex_name %p &locks[0]\n", &locks[0]);
   ddsrt_mutex_init(&locks[1]);
+printf("mutex_name %p &locks[1]\n", &locks[1]);
   ddsrt_mutex_lock(&locks[0]);
   ddsrt_mutex_lock(&locks[1]);
   ddsrt_threadattr_init(&attr);

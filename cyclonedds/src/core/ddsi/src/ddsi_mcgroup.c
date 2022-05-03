@@ -67,6 +67,7 @@ struct nn_group_membership *new_group_membership (void)
 {
   struct nn_group_membership *mship = ddsrt_malloc (sizeof (*mship));
   ddsrt_mutex_init (&mship->lock);
+  printf("mutex_name %p &mship->lock\n", &mship->lock);
   ddsrt_avl_init (&mship_td, &mship->mships);
   return mship;
 }

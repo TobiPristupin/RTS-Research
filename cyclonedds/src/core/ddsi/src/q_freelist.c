@@ -10,6 +10,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
  */
 #include <stddef.h>
+#include <stdio.h>
 
 #include "dds/ddsrt/atomics.h"
 #include "dds/ddsrt/misc.h"
@@ -108,9 +109,11 @@ void nn_freelist_init (struct nn_freelist *fl, uint32_t max, size_t linkoff)
 {
   int i;
   ddsrt_mutex_init (&fl->lock);
+    printf("mutex_name %p &fl->lock\n", &fl->lock);
   for (i = 0; i < NN_FREELIST_NPAR; i++)
   {
     ddsrt_mutex_init (&fl->inner[i].lock);
+    printf("mutex_name %p &fl->inner[i].lock\n", &fl->inner[i].lock);
     fl->inner[i].count = 0;
     fl->inner[i].m = ddsrt_malloc (sizeof (*fl->inner[i].m));
   }

@@ -116,7 +116,7 @@ ddsrt_mutex_unlock (ddsrt_mutex_t *mutex)
 {
   assert (mutex != NULL);
 #ifdef RTS_DEBUG_INFO
-    printf("lock_mutex %p %ld\n", mutex, time_ns());
+    printf("unlock_mutex %p %ld\n", mutex, time_ns());
 #endif
 
 #ifdef RTS_SPINLOCK

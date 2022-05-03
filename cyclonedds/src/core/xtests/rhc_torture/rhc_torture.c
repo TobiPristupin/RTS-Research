@@ -907,6 +907,7 @@ int main (int argc, char **argv)
   int first = 0, count = 10000;
 
   ddsrt_mutex_init (&wait_gc_cycle_lock);
+printf("mutex_name %p &wait_gc_cycle_lock\n", &wait_gc_cycle_lock);
   ddsrt_cond_init (&wait_gc_cycle_cond);
 
   if (argc > 1)

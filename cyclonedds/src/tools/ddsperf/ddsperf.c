@@ -792,6 +792,7 @@ static void latencystat_update (struct latencystat *x, int64_t tdelta)
 static void init_eseq_admin (struct eseq_admin *ea, unsigned nkeys)
 {
   ddsrt_mutex_init (&ea->lock);
+    printf("mutex_name %p &ea->lock\n", &ea->lock);
   ea->nkeys = nkeys;
   ea->nph = 0;
   ea->ph = NULL;
@@ -2193,9 +2194,13 @@ int main (int argc, char *argv[])
   ddsrt_fibheap_init (&ppants_to_match_fhd, &ppants_to_match);
 
   ddsrt_mutex_init (&disc_lock);
+printf("mutex_name %p &disc_lock\n", &disc_lock);
   ddsrt_mutex_init (&pongstat_lock);
+printf("mutex_name %p &pongstat_lock\n", &pongstat_lock);
   ddsrt_mutex_init (&pongwr_lock);
+printf("mutex_name %p &pongwr_lock\n", &pongwr_lock);
   ddsrt_mutex_init (&pubstat_lock);
+printf("mutex_name %p &pubstat_lock\n", &pubstat_lock);
 
   pubstat_hist = hist_new (30, 1000, 0);
 

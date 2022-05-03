@@ -249,7 +249,9 @@ CU_Test(ddsrt_thread_cleanup, no_interference)
   ddsrt_mutex_t mutex1, mutex2;
 
   ddsrt_mutex_init(&mutex1);
+printf("mutex_name %p &mutex1\n", &mutex1);
   ddsrt_mutex_init(&mutex2);
+printf("mutex_name %p &mutex2\n", &mutex2);
   ddsrt_mutex_lock(&mutex1);
   ddsrt_mutex_lock(&mutex2);
 

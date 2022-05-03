@@ -1150,6 +1150,7 @@ int finalize_test_cryptography_missing_func(void *context)
 static void init_encode_decode_log(struct dds_security_cryptography_impl *impl)
 {
   ddsrt_mutex_init (&impl->encode_decode_log_lock);
+printf("mutex_name %p &impl->encode_decode_log_lock\n", &impl->encode_decode_log_lock);
   ddsrt_circlist_init (&impl->encode_decode_log);
 }
 
@@ -1188,6 +1189,7 @@ int finalize_test_cryptography_wrapped(void *context)
 static void init_print_lock(void)
 {
   ddsrt_mutex_init (&g_print_token_lock);
+    printf("mutex_name %p &g_print_token_lock\n", &g_print_token_lock);
 }
 
 int32_t init_test_cryptography_store_tokens(const char *argument, void **context, struct ddsi_domaingv *gv)
@@ -1198,6 +1200,7 @@ int32_t init_test_cryptography_store_tokens(const char *argument, void **context
   impl->mode = PLUGIN_MODE_TOKEN_LOG;
   ddsrt_once (&lock_inited, &init_print_lock);
   ddsrt_mutex_init (&impl->token_data_lock);
+printf("mutex_name %p &impl->token_data_lock\n", &impl->token_data_lock);
   ddsrt_circlist_init (&impl->token_data_list);
   *context = impl;
   return DDS_SECURITY_SUCCESS;

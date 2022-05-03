@@ -1,0 +1,326 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/pubsub"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_compile_options"
+		],
+		"files" : 
+		[
+			"src/tools/pubsub/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 134,
+				"parent" : 4
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wmissing-prototypes"
+				},
+				{
+					"fragment" : "-std=gnu99"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/src/security/api/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/src/security/api/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/src/security/api/../../core/ddsi/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/src/core"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/src/core/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/src/core/ddsc/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/src/ddsrt/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/src/ddsrt/src"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/src/ddsrt/include"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "ddsc::@0618756b1ff51bca1a0e"
+		}
+	],
+	"id" : "pubsub::@dd6321b3ca00340a6af4",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/lib:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../../lib/libddsc.so.0.9.0",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "pubsub",
+	"nameOnDisk" : "pubsub",
+	"paths" : 
+	{
+		"build" : "src/tools/pubsub",
+		"source" : "src/tools/pubsub"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tools/pubsub/pubsub.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tools/pubsub/common.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tools/pubsub/testtype.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tools/pubsub/porting.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/dds.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_error.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_impl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_listener.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_qos.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_qosdefs.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_public_status.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_statistics.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_rhc.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_internal_api.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_opcodes.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_data_allocator.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/core/ddsc/include/dds/ddsc/dds_loan_api.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "cmake-build-debug/src/core/include/dds/export.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

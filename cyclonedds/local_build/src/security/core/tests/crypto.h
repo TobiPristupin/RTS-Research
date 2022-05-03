@@ -1,0 +1,3 @@
+#define CU_TheoryDataPointsSize_ddssec_crypto_inject_plain_data(datapoints) ( datapoints.test_descr.n )
+#define CU_TheoryDataPointsSlice_ddssec_crypto_inject_plain_data(datapoints, index) ( datapoints.test_descr.p[index], datapoints.payload_pk.p[index], datapoints.submsg_pk.p[index], datapoints.rtps_pk.p[index] )
+#define CU_TheoryDataPointsTypedef_ddssec_crypto_inject_plain_data() { struct { size_t n; const char * *p; } test_descr; struct { size_t n; DDS_Security_BasicProtectionKind *p; } payload_pk; struct { size_t n; DDS_Security_ProtectionKind *p; } submsg_pk; struct { size_t n; DDS_Security_ProtectionKind *p; } rtps_pk; }

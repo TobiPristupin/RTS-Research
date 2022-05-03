@@ -165,6 +165,7 @@ static CRYPTO_dynlock_value *ddsi_ssl_dynlock_create (const char *file, int line
   (void) line;
   CRYPTO_dynlock_value *val = ddsrt_malloc (sizeof (*val));
   ddsrt_mutex_init (&val->m_mutex);
+printf("mutex_name %p it (&val->m_mutex\n", it (&val->m_mutex);
   return val;
 }
 
@@ -371,6 +372,7 @@ static bool ddsi_ssl_init (struct ddsi_domaingv *gv)
     ddsi_ssl_locks = ddsrt_malloc (sizeof (CRYPTO_dynlock_value) * (size_t) locks);
     for (int i = 0; i < locks; i++)
       ddsrt_mutex_init (&ddsi_ssl_locks[i].m_mutex);
+printf("mutex_name %p x_init (&ddsi_ssl_locks[i].m_mutex\n", x_init (&ddsi_ssl_locks[i].m_mutex);
   }
 #endif
   /* Leave these in place: OpenSSL 1.1 defines them as no-op macros that not even reference the symbol,

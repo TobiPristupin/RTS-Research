@@ -9,6 +9,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
  */
+#include <stdio.h>
 #include "dds/ddsrt/atomics.h"
 #include "dds/ddsrt/cdtors.h"
 #include "dds/ddsrt/sync.h"
@@ -39,6 +40,7 @@ retry:
     return;
   else if (v == 1) {
     ddsrt_mutex_init(&init_mutex);
+    printf("mutex_name %p &init_mutex\n", &init_mutex);
     ddsrt_cond_init(&init_cond);
 #if _WIN32
     ddsrt_winsock_init();

@@ -507,6 +507,7 @@ dds_return_t dds__writer_data_allocator_init (const dds_writer *wr, dds_data_all
 #ifdef DDS_HAS_SHM
   dds_iox_allocator_t *d = (dds_iox_allocator_t *) data_allocator->opaque.bytes;
   ddsrt_mutex_init(&d->mutex);
+printf("mutex_name %p &d->mutex\n", &d->mutex);
   if (NULL != wr->m_iox_pub)
   {
     d->kind = DDS_IOX_ALLOCATOR_KIND_PUBLISHER;

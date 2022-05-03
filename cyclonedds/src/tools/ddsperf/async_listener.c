@@ -80,6 +80,7 @@ struct async_listener *async_listener_new (void)
   if ((al = malloc (sizeof (*al))) == NULL)
     return NULL;
   ddsrt_mutex_init (&al->lock);
+    printf("mutex_name %p &al->lock\n", &al->lock);
   ddsrt_cond_init (&al->cond);
   al->stop = 0;
   al->oldest = NULL;

@@ -2,25 +2,39 @@ import sys
 import pprint
 from collections import Counter
 
-# Map a mutex/rw memory address to an integer id for convenience
-mutex_to_id = {}
-rw_to_id = {}
+# Map a mutex/rw memory address to its name
+mutex_to_name = {}
 
 # Counts how many times a thread attempted to lock a mutex
 mutex_locks_attempted = Counter()
 
-def init_mutex(addr, time_ns):
-    mutex_to_id[addr] = len(mutex_to_id)
+# Maps a mutex to its last acquired time
+mutex_last_acquired = {}
+# Maps a mutex name to its longest held time
+mutex_longest_held = Counter()
 
-def init_rw_lock(addr, time_ns):
-    rw_to_id[addr] = len(rw_to_id)
+def init_mutex(addr, time_ns):
+    pass
+
+def mutex_name(addr, name):
+    mutex_to_name[addr] = name
 
 def lock_mutex(addr, time_ns):
-    mutex_id = mutex_to_id[addr]
-    mutex_locks_attempted.update([mutex_id])
+    name = mutex_to_name[addr]
+    mutex_locks_attempted.update([name])
 
 def acquire_mutex(addr, time_ns):
-    pass
+    name = mutex_to_name[addr]
+    mutex_last_acquired[name] = int(time_ns)
+
+def unlock_mutex(addr, time_ns):
+    name = mutex_to_name[addr]
+    if name not in mutex_last_acquired:
+        return
+    last_acquired = mutex_last_acquired[name]
+    max_held = mutex_longest_held.get(name, -1)
+    duration_ms = (int(time_ns) - last_acquired) / 1000000
+    mutex_longest_held[name] = max(max_held, duration_ms)
 
 if len(sys.argv) - 1 != 1:
     print("Please pass in a filename")
@@ -36,13 +50,16 @@ with open(filename, 'r') as file:
 
         if "init_mutex" == op:
             init_mutex(*args)
-        elif "init_rw_lock" == op:
-            init_rw_lock(*args)
+        elif "mutex_name" == op:
+            mutex_name(*args)
         elif "lock_mutex" == op:
             lock_mutex(*args)
         elif "acquire_mutex" == op:
             acquire_mutex(*args)
+        elif "unlock_mutex" == op:
+            unlock_mutex(*args)
 
-print(f"Mutex count={len(mutex_to_id)}")
+print(f"Mutex count={len(mutex_to_name)}")
 print(f"Most common locks:{mutex_locks_attempted.most_common(10)}")
+print(f"Longest held: {mutex_longest_held.most_common(10)}")
 

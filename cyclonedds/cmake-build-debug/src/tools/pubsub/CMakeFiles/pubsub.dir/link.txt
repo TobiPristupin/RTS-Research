@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/pubsub.dir/pubsub.c.o CMakeFiles/pubsub.dir/common.c.o CMakeFiles/pubsub.dir/testtype.c.o CMakeFiles/pubsub.dir/porting.c.o -o ../../../bin/pubsub  -Wl,-rpath,/home/pristu/Documents/School/Gill/rts-research/cyclonedds/cmake-build-debug/lib: ../../../lib/libddsc.so.0.9.0 

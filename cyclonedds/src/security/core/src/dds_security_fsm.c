@@ -520,6 +520,7 @@ struct dds_security_fsm_control * dds_security_fsm_control_create (struct ddsi_d
   control->last_fsm = NULL;
   control->gv = gv;
   ddsrt_mutex_init (&control->lock);
+    printf("mutex_name %p &control->lock\n", &control->lock);
   ddsrt_cond_init (&control->cond);
   ddsrt_fibheap_init (&timer_events_fhdef, &control->timers);
 

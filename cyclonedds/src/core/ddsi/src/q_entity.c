@@ -311,7 +311,9 @@ static void entity_common_init (struct entity_common *e, struct ddsi_domaingv *g
   e->onlylocal = onlylocal;
   e->gv = gv;
   ddsrt_mutex_init (&e->lock);
+  printf("mutex_name %p &e->lock\n", &e->lock);
   ddsrt_mutex_init (&e->qos_lock);
+  printf("mutex_name %p &e->qos_lock\n", &e->qos_lock);
   if (builtintopic_is_visible (gv->builtin_topic_interface, guid, vendorid))
   {
     e->tk = builtintopic_get_tkmap_entry (gv->builtin_topic_interface, guid);
@@ -336,6 +338,7 @@ static void entity_common_fini (struct entity_common *e)
 static void local_reader_ary_init (struct local_reader_ary *x)
 {
   ddsrt_mutex_init (&x->rdary_lock);
+  printf("mutex_name %p &x->rdary_lock\n", &x->rdary_lock);
   x->valid = 1;
   x->fastpath_ok = 1;
   x->n_readers = 0;
@@ -461,6 +464,7 @@ struct deleted_participants_admin *deleted_participants_admin_new (const ddsrt_l
 {
   struct deleted_participants_admin *admin = ddsrt_malloc (sizeof (*admin));
   ddsrt_mutex_init (&admin->deleted_participants_lock);
+  printf("mutex_name %p &admin->deleted_participants_lock\n", &admin->deleted_participants_lock);
   ddsrt_avl_init (&deleted_participants_treedef, &admin->deleted_participants);
   admin->logcfg = logcfg;
   admin->delay = delay;
@@ -1077,6 +1081,7 @@ dds_return_t new_participant_guid (ddsi_guid_t *ppguid, struct ddsi_domaingv *gv
   pp->state = PARTICIPANT_STATE_INITIALIZING;
   pp->is_ddsi2_pp = (flags & (RTPS_PF_PRIVILEGED_PP | RTPS_PF_IS_DDSI2_PP)) ? 1 : 0;
   ddsrt_mutex_init (&pp->refc_lock);
+  printf("mutex_name %p pp->refc_lock\n", &pp->refc_lock);
   inverse_uint32_set_init(&pp->avail_entityids.x, 1, UINT32_MAX / NN_ENTITYID_ALLOCSTEP);
   pp->lease_duration = gv->config.lease_duration;
   ddsrt_fibheap_init (&ldur_fhdef, &pp->ldur_auto_wr);

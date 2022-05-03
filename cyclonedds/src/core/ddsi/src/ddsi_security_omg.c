@@ -482,6 +482,7 @@ static void clear_pending_matches_by_remote_guid(dds_security_context *sc, struc
 static void pending_match_index_init(const struct ddsi_domaingv *gv, struct pending_match_index *index)
 {
   ddsrt_mutex_init(&index->lock);
+printf("mutex_name %p &index->lock\n", &index->lock);
   ddsrt_avl_init(&pending_match_index_treedef, &index->pending_matches);
   ddsrt_fibheap_init(&pending_match_expiry_fhdef, &index->expiry_timers);
   index->gv = gv;
@@ -598,6 +599,7 @@ static struct participant_sec_attributes * participant_sec_attributes_new(ddsi_g
 
   attr = ddsrt_malloc(sizeof(*attr));
   ddsrt_mutex_init(&attr->lock);
+printf("mutex_name %p &attr->lock\n", &attr->lock);
   ddsrt_avl_cinit(&pp_proxypp_treedef, &attr->proxy_participants);
   attr->pp_guid = *guid;
   attr->crypto_handle = DDS_SECURITY_HANDLE_NIL;
@@ -738,10 +740,12 @@ void q_omg_security_init (struct ddsi_domaingv *gv)
   sc->crypto_plugin.name = CRYPTO_NAME;
 
   ddsrt_mutex_init(&sc->partiticpant_index.lock);
+printf("mutex_name %p &sc->partiticpant_index.lock\n", &sc->partiticpant_index.lock);
   ddsrt_avl_cinit(&participant_index_treedef, &sc->partiticpant_index.participants);
   pending_match_index_init(gv, &sc->security_matches);
 
   ddsrt_mutex_init (&sc->omg_security_lock);
+  printf("mutex_name %p &sc->omg_security_lock\n", &sc->omg_security_lock);
   gv->security_context = sc;
 
   if (gv->config.omg_security_configuration)
@@ -1858,6 +1862,7 @@ void q_omg_security_init_remote_participant(struct proxy_participant *proxypp)
 {
   proxypp->sec_attr = ddsrt_malloc(sizeof(*proxypp->sec_attr));
   ddsrt_mutex_init(&proxypp->sec_attr->lock);
+printf("mutex_name %p &proxypp->sec_attr->lock\n", &proxypp->sec_attr->lock);
   ddsrt_avl_init (&proxypp_pp_treedef, &proxypp->sec_attr->participants);
   proxypp->sec_attr->sc = proxypp->e.gv->security_context;
   proxypp->sec_attr->remote_identity_handle = 0;

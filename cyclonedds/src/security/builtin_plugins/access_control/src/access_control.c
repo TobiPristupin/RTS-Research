@@ -1494,6 +1494,7 @@ int init_access_control(const char *argument, void **context, struct ddsi_domain
   access_control->base.return_datareader_sec_attributes = &return_datareader_sec_attributes;
   access_control->base.return_permissions_handle = &return_permissions_handle;
   ddsrt_mutex_init(&access_control->lock);
+printf("mutex_name %p &access_control->lock\n", &access_control->lock);
 
 #ifdef ACCESS_CONTROL_USE_ONE_PERMISSION
   access_control->local_access_rights = NULL;

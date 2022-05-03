@@ -52,6 +52,7 @@ static CRYPTO_dynlock_value *ssl_dynlock_create (const char *file, int line)
   (void) line;
   CRYPTO_dynlock_value *val = ddsrt_malloc (sizeof (*val));
   ddsrt_mutex_init (&val->m_mutex);
+printf("mutex_name %p it (&val->m_mutex\n", it (&val->m_mutex);
   return val;
 }
 
@@ -84,6 +85,7 @@ void dds_openssl_init (void)
       dds_openssl102_ssl_locks = ddsrt_malloc (sizeof (CRYPTO_dynlock_value) * (size_t) locks);
       for (int i = 0; i < locks; i++)
         ddsrt_mutex_init (&dds_openssl102_ssl_locks[i].m_mutex);
+printf("mutex_name %p tex_init (&dds_openssl102_ssl_locks[i].m_mutex\n", tex_init (&dds_openssl102_ssl_locks[i].m_mutex);
     }
 
     OpenSSL_add_all_algorithms ();

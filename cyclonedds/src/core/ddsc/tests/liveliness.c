@@ -1105,6 +1105,7 @@ static void lease_duration_zero_or_one_impl (dds_duration_t sleep, dds_livelines
     .w0_not_alive = 0,
   };
   ddsrt_mutex_init (&listener_state.lock);
+printf("mutex_name %p listener_state.lock\n", &listener_state.lock);
   setup_reader_zero_or_one (&reader, &writer_active, &waitset, lkind, ldur, remote_reader, &listener_state);
 
   /* write as fast as possible - we don't expect this to cause the writers
@@ -1223,6 +1224,7 @@ CU_Test(ddsc_liveliness, listener_vs_getstatus, .init = liveliness_init, .fini =
     .w0_not_alive = 0,
   };
   ddsrt_mutex_init (&listener_state.lock);
+printf("mutex_name %p &listener_state.lock\n", &listener_state.lock);
   setup_reader_zero_or_one (&reader, &writer_active, &waitset, DDS_LIVELINESS_MANUAL_BY_TOPIC, 1, false, &listener_state);
 
   /* start a thread that continually calls dds_get_liveliness_changed_status: that resets

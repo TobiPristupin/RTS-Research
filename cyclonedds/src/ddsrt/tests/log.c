@@ -387,6 +387,7 @@ CU_Test(dds_log, synchronous_sink_changes, .fini=reset)
   dds_return_t ret;
 
   ddsrt_mutex_init(&mutex);
+printf("mutex_name %p &mutex\n", &mutex);
   ddsrt_cond_init(&cond);
   (void)memset(&arg, 0, sizeof(arg));
   arg.mutex = &mutex;
